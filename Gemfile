@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = {git: "https://git@github.com/decidim/decidim.git", branch: "backport-0.16/participatory_text_evols_and_fixes"}
+DECIDIM_VERSION = { git: "https://git@github.com/decidim/decidim.git" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
