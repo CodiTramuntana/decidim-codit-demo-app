@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://git@github.com/decidim/decidim.git" }
+DECIDIM_VERSION = { git: "https://git@github.com/decidim/decidim.git", branch: "fix_route_path_file_examples" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
