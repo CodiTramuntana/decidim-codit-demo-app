@@ -1,7 +1,6 @@
 GIT
   remote: https://git@github.com/decidim/decidim.git
-  revision: 4bd82beca7ac09dbe725649be5e61812f6a2fa09
-  branch: fix_route_path_file_examples
+  revision: 0bae12cc8d1765ed1fadfd06038936c907e8f9ad
   specs:
     decidim (0.18.0.dev)
       decidim-accountability (= 0.18.0.dev)
@@ -210,7 +209,7 @@ GIT
 
 GIT
   remote: https://github.com/CodiTramuntana/decidim-file_authorization_handler.git
-  revision: 1085cb65135044b09e7fd6dde6a7fa282d9a680f
+  revision: ae8669cf7011cf9ec7b6c4d48319b495d746f284
   branch: fix/ensure_all_data_properly_encoded
   specs:
     decidim-file_authorization_handler (0.12.0)
@@ -218,28 +217,36 @@ GIT
       decidim-admin (>= 0.12.0)
       rails (>= 5.2)
 
+GIT
+  remote: https://github.com/gencat/decidim-verifications-members_picker.git
+  revision: 71b847541d126e3d350b73e7589e0919b3a24e38
+  specs:
+    decidim-verifications-members_picker (0.0.1)
+      decidim-core (>= 0.16.0)
+      decidim-verifications (>= 0.16.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    actioncable (5.2.2.1)
-      actionpack (= 5.2.2.1)
+    actioncable (5.2.3)
+      actionpack (= 5.2.3)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
-    actionmailer (5.2.2.1)
-      actionpack (= 5.2.2.1)
-      actionview (= 5.2.2.1)
-      activejob (= 5.2.2.1)
+    actionmailer (5.2.3)
+      actionpack (= 5.2.3)
+      actionview (= 5.2.3)
+      activejob (= 5.2.3)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 2.0)
-    actionpack (5.2.2.1)
-      actionview (= 5.2.2.1)
-      activesupport (= 5.2.2.1)
+    actionpack (5.2.3)
+      actionview (= 5.2.3)
+      activesupport (= 5.2.3)
       rack (~> 2.0)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (5.2.2.1)
-      activesupport (= 5.2.2.1)
+    actionview (5.2.3)
+      activesupport (= 5.2.3)
       builder (~> 3.1)
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
@@ -247,20 +254,20 @@ GEM
     active_link_to (1.0.5)
       actionpack
       addressable
-    activejob (5.2.2.1)
-      activesupport (= 5.2.2.1)
+    activejob (5.2.3)
+      activesupport (= 5.2.3)
       globalid (>= 0.3.6)
-    activemodel (5.2.2.1)
-      activesupport (= 5.2.2.1)
-    activerecord (5.2.2.1)
-      activemodel (= 5.2.2.1)
-      activesupport (= 5.2.2.1)
+    activemodel (5.2.3)
+      activesupport (= 5.2.3)
+    activerecord (5.2.3)
+      activemodel (= 5.2.3)
+      activesupport (= 5.2.3)
       arel (>= 9.0)
-    activestorage (5.2.2.1)
-      actionpack (= 5.2.2.1)
-      activerecord (= 5.2.2.1)
+    activestorage (5.2.3)
+      actionpack (= 5.2.3)
+      activerecord (= 5.2.3)
       marcel (~> 0.3.1)
-    activesupport (5.2.2.1)
+    activesupport (5.2.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -291,10 +298,10 @@ GEM
       html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
-    bindex (0.5.0)
+    bindex (0.6.0)
     builder (3.2.3)
     byebug (10.0.2)
-    capybara (3.15.0)
+    capybara (3.16.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -337,7 +344,7 @@ GEM
     crass (1.0.4)
     css_parser (1.7.0)
       addressable
-    daemons (1.2.6)
+    daemons (1.3.1)
     date_validator (0.9.0)
       activemodel
       activesupport
@@ -433,7 +440,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
-    i18n-tasks (0.9.28)
+    i18n-tasks (0.9.29)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
       erubi
@@ -489,7 +496,7 @@ GEM
     method_source (0.9.2)
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2018.0812)
+    mime-types-data (3.2019.0331)
     mimemagic (0.3.3)
     mini_magick (4.9.3)
     mini_mime (1.0.1)
@@ -540,11 +547,11 @@ GEM
       paper_trail-association_tracking (< 2)
       request_store (~> 1.1)
     paper_trail-association_tracking (1.1.1)
-    parallel (1.16.0)
-    parser (2.6.2.0)
+    parallel (1.17.0)
+    parser (2.6.2.1)
       ast (~> 2.4.0)
     pg (1.1.4)
-    pg_search (2.1.4)
+    pg_search (2.1.5)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
     powerpack (0.1.2)
@@ -556,25 +563,25 @@ GEM
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (3.0.3)
-    puma (3.11.4)
-    rack (2.0.6)
+    puma (3.12.1)
+    rack (2.0.7)
     rack-attack (5.4.2)
       rack (>= 1.0, < 3)
     rack-cors (1.0.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rails (5.2.2.1)
-      actioncable (= 5.2.2.1)
-      actionmailer (= 5.2.2.1)
-      actionpack (= 5.2.2.1)
-      actionview (= 5.2.2.1)
-      activejob (= 5.2.2.1)
-      activemodel (= 5.2.2.1)
-      activerecord (= 5.2.2.1)
-      activestorage (= 5.2.2.1)
-      activesupport (= 5.2.2.1)
+    rails (5.2.3)
+      actioncable (= 5.2.3)
+      actionmailer (= 5.2.3)
+      actionpack (= 5.2.3)
+      actionview (= 5.2.3)
+      activejob (= 5.2.3)
+      activemodel (= 5.2.3)
+      activerecord (= 5.2.3)
+      activestorage (= 5.2.3)
+      activesupport (= 5.2.3)
       bundler (>= 1.3.0)
-      railties (= 5.2.2.1)
+      railties (= 5.2.3)
       sprockets-rails (>= 2.0.0)
     rails-controller-testing (1.0.4)
       actionpack (>= 5.0.1.x)
@@ -588,9 +595,9 @@ GEM
     rails-i18n (5.1.3)
       i18n (>= 0.7, < 2)
       railties (>= 5.0, < 6)
-    railties (5.2.2.1)
-      actionpack (= 5.2.2.1)
-      activesupport (= 5.2.2.1)
+    railties (5.2.3)
+      actionpack (= 5.2.3)
+      activesupport (= 5.2.3)
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
@@ -602,8 +609,8 @@ GEM
       activesupport (>= 5.0)
       i18n
     rb-fsevent (0.10.3)
-    rb-inotify (0.9.10)
-      ffi (>= 0.5.0, < 2)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
     rectify (0.13.0)
       activemodel (>= 4.1.0)
       activerecord (>= 4.1.0)
@@ -612,7 +619,7 @@ GEM
       wisper (>= 1.6.1)
     redcarpet (3.4.0)
     redis (4.1.0)
-    regexp_parser (1.3.0)
+    regexp_parser (1.4.0)
     request_store (1.4.1)
       rack (>= 1.4)
     responders (2.4.1)
@@ -740,7 +747,7 @@ GEM
       virtus (~> 1.0)
     warden (1.2.8)
       rack (>= 2.0.6)
-    web-console (3.6.2)
+    web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
@@ -756,7 +763,7 @@ GEM
       chronic (>= 0.6.3)
     wicked (1.3.3)
       railties (>= 3.0.7)
-    wicked_pdf (1.2.1)
+    wicked_pdf (1.2.2)
       activesupport
     wisper (2.0.0)
     wisper-rspec (1.1.0)
@@ -777,6 +784,7 @@ DEPENDENCIES
   decidim-file_authorization_handler!
   decidim-initiatives!
   decidim-sortitions!
+  decidim-verifications-members_picker!
   delayed_job_active_record
   faker (~> 1.8.4)
   figaro (>= 1.1.1)

@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://git@github.com/decidim/decidim.git", branch: "fix_route_path_file_examples" }
+DECIDIM_VERSION = { git: "https://git@github.com/decidim/decidim.git" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
@@ -10,6 +10,7 @@ gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem 'decidim-file_authorization_handler', git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", :branch => 'fix/ensure_all_data_properly_encoded'
+gem 'decidim-verifications-members_picker', git: "https://github.com/gencat/decidim-verifications-members_picker.git"
 
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
