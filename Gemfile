@@ -9,7 +9,7 @@ DECIDIM_VERSION = { git: 'https://git@github.com/decidim/decidim.git' }.freeze
 gem 'decidim', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
 gem 'decidim-consultations', DECIDIM_VERSION
-gem 'decidim-file_authorization_handler', git: 'https://github.com/CodiTramuntana/decidim-file_authorization_handler.git', branch: 'fix/ensure_all_data_properly_encoded'
+gem 'decidim-file_authorization_handler', git: 'https://github.com/CodiTramuntana/decidim-file_authorization_handler.git'
 gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-sortitions', DECIDIM_VERSION
 gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git'
