@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: 'https://git@github.com/decidim/decidim.git' }.freeze
+DECIDIM_VERSION = { git: 'https://git@github.com/Coditramuntana/decidim.git', branch: "add/allowed_sites_to_social_share_button" }.freeze
 
 gem 'decidim', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
