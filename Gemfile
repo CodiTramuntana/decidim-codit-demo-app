@@ -13,6 +13,7 @@ gem 'decidim-file_authorization_handler', git: 'https://github.com/CodiTramuntan
 gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-sortitions', DECIDIM_VERSION
 gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git'
+gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git"
 
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
