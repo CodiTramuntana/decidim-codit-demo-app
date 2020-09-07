@@ -13,3 +13,12 @@
 //= require rails-ujs
 //= require_tree .
 //= require decidim
+
+$(document).ready(function() {
+  initiativesButton = $("a[href='/initiatives']");
+  initiativesButton.parent().css("display", "none");
+  registrationButton = $("a[href='/conferences/webinar/registration']");
+  registrationButton.attr("href", registrationButton.attr("href") + "#process-nav-content");
+  programButton = $("a[href='/conferences/webinar/program/385']");
+  programButton.attr("href", programButton.attr("href") + "#process-nav-content");
+});
