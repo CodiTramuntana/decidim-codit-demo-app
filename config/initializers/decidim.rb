@@ -9,7 +9,7 @@ Decidim.configure do |config|
   config.default_locale = :en
   config.available_locales = [:en, :ca, :es, :eu, :gl, :fr, :it, :pt]
 
-  config.enable_html_header_snippets = false
+  config.enable_html_header_snippets = true
   config.track_newsletter_links = true
 
   # Geocoder configuration
