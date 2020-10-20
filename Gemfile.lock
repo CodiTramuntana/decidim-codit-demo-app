@@ -227,6 +227,15 @@ GIT
       rails (>= 5.2)
 
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-action_delegator
+  revision: 50a170a6ba09238a65d1a439ef74f50b4221fd20
+  specs:
+    decidim-action_delegator (0.1)
+      decidim-admin (>= 0.21.0)
+      decidim-consultations (>= 0.21.0)
+      decidim-core (>= 0.21.0)
+
+GIT
   remote: https://github.com/CodiTramuntana/decidim-module-term_customizer
   revision: c4ed0ffa87bd9977c6b470aa815d5dc2ed9f88a5
   specs:
@@ -816,6 +825,7 @@ DEPENDENCIES
   byebug
   daemons
   decidim!
+  decidim-action_delegator!
   decidim-conferences!
   decidim-consultations!
   decidim-dev!
