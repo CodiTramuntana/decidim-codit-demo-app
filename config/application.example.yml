@@ -17,6 +17,11 @@ default: &default
 
 development:
   <<: *default
+  SECRET_KEY_BASE: TODO_RECREATEME_d5b89a331457831af54be20082de37db30332f4d7f77796756aee43e96786cb0d55810bd13b0d4a52044c569cc9920faf00f17b028bede84fcf69b
+
+test:
+  <<: *default
+  DB_TEST_DATABASE: "codit_demo_app-test"
 
 integration:
   <<: *default
