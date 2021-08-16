@@ -16,7 +16,7 @@ gem 'decidim-sortitions', DECIDIM_VERSION
 gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git'
 gem 'decidim-action_delegator', git: 'https://github.com/CodiTramuntana/decidim-module-action_delegator'
 
-gem 'puma', '>= 4.3'
+gem 'puma', '>= 4.3', '< 5'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'whenever', '~> 0.10.0'
