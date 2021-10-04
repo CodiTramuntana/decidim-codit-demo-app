@@ -1,5 +1,7 @@
-workers Integer(ENV['WEB_CONCURRENCY'] || 1)
-threads_count = Integer(ENV['MAX_THREADS'] || 5)
+# frozen_string_literal: true
+
+workers Integer(ENV["WEB_CONCURRENCY"] || 1)
+threads_count = Integer(ENV["MAX_THREADS"] || 5)
 threads threads_count, threads_count
 stdout_redirect "log/puma.log", "log/puma_error.log", true
 pidfile "tmp/pids/puma.pid"
@@ -9,9 +11,9 @@ preload_app!
 
 activate_control_app
 
-rackup      DefaultRackup
-port        ENV['PORT']     || 3000
-env= ENV['RACK_ENV'] || ENV['RAILS_ENV'] || :staging || :production
+rackup DefaultRackup
+port ENV["PORT"] || 3000
+env= ENV["RACK_ENV"] || ENV["RAILS_ENV"] || :staging || :production
 environment env
 daemonize [:production, :staging, :integration].include?(env)
 
