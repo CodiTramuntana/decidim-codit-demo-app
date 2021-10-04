@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'release/0.23-stable' }
+DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'release/0.24-stable' }
 
 gem 'decidim', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
@@ -14,9 +14,9 @@ gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-term_customizer', git: 'https://github.com/CodiTramuntana/decidim-module-term_customizer'
 gem 'decidim-sortitions', DECIDIM_VERSION
 gem 'decidim-verifications-members_picker', git: 'https://github.com/gencat/decidim-verifications-members_picker.git'
-gem 'decidim-action_delegator', git: 'https://github.com/CodiTramuntana/decidim-module-action_delegator'
+gem 'decidim-action_delegator', git: 'https://github.com/coopdevs/decidim-module-action_delegator'
 
-gem 'puma', '>= 4.3', '< 5'
+gem 'puma'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'whenever', '~> 0.10.0'
