@@ -1,3 +1,3 @@
-if Rails.env.development?
-  Decidim.seed!
-end
+# frozen_string_literal: true
+
+Decidim.seed! if Rails.env.development?
