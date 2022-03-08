@@ -262,6 +262,15 @@ GIT
       decidim-core (>= 0.16.0)
       decidim-verifications (>= 0.16.0)
 
+GIT
+  remote: https://github.com/luizsanches/decidim-module-calendar
+  revision: 0009dc7cb1a5303502093293cff535cb700028a7
+  tag: decidim-0.24.3
+  specs:
+    decidim-calendar (0.20.0)
+      decidim-admin (>= 0.20.0)
+      decidim-core (>= 0.20.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -937,6 +946,7 @@ DEPENDENCIES
   daemons
   decidim!
   decidim-action_delegator!
+  decidim-calendar!
   decidim-conferences!
   decidim-consultations!
   decidim-decidim_awesome (~> 0.7.2)

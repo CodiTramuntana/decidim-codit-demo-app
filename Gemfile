@@ -16,6 +16,7 @@ gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer"
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git"
 gem "decidim-decidim_awesome", "~> 0.7.2"
+gem "decidim-calendar", git: "https://github.com/luizsanches/decidim-module-calendar", tag: "decidim-0.24.3"
 
 gem "puma"
 gem "uglifier", ">= 1.3.0"
