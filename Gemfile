@@ -10,15 +10,17 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-action_delegator", git: "https://github.com/coopdevs/decidim-module-action_delegator"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
-gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git"
+gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", tag: "v0.15.0"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
-gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "0.24-stable"
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git"
 gem "decidim-decidim_awesome", "~> 0.7.2"
 gem "decidim-calendar", git: "https://github.com/luizsanches/decidim-module-calendar", tag: "decidim-0.24.3"
 
-gem "puma"
+gem "rails", ">= 5.2.6.3"
+
+gem "puma", ">= 5.6.2"
 gem "uglifier", ">= 1.3.0"
 
 gem "whenever", "~> 0.10.0"
