@@ -17,6 +17,7 @@ gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-te
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git"
 gem "decidim-decidim_awesome", "~> 0.7.2"
 gem "decidim-calendar", git: "https://github.com/luizsanches/decidim-module-calendar", tag: "decidim-0.24.3"
+gem "decidim-tags",git:"https://github.com/mainio/decidim-module-tags", branch:"release/0.24-stable"
 
 gem "rails", ">= 5.2.6.3"
 

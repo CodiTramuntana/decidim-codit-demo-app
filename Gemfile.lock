@@ -265,6 +265,14 @@ GIT
       decidim-core (>= 0.20.0)
 
 GIT
+  remote: https://github.com/mainio/decidim-module-tags
+  revision: a8b3ba65b909881fd337cc7461d9743f3ee4c293
+  branch: release/0.24-stable
+  specs:
+    decidim-tags (0.24.0)
+      decidim-core (~> 0.24.0)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: 4b385c55996e390406ac68a8b5ab68b9da2c8817
   branch: 0.24-stable
@@ -936,6 +944,7 @@ DEPENDENCIES
   decidim-file_authorization_handler!
   decidim-initiatives!
   decidim-sortitions!
+  decidim-tags!
   decidim-term_customizer!
   decidim-verifications-members_picker!
   delayed_job_active_record
