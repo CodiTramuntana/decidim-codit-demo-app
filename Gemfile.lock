@@ -248,6 +248,13 @@ GIT
       twilio-ruby
 
 GIT
+  remote: https://github.com/gencat/decidim-module-challenges
+  revision: 41c4282c55b6c80c47e53b55f3a1af76519023f5
+  specs:
+    decidim-challenges (0.0.13)
+      decidim-core (~> 0.24.2)
+
+GIT
   remote: https://github.com/gencat/decidim-verifications-members_picker.git
   revision: c72facbc79dd4c4d8753a1330a6978ad7259f746
   specs:
@@ -480,8 +487,8 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (1.8.7)
-      i18n (>= 0.7)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     faraday (2.2.0)
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
@@ -929,6 +936,7 @@ DEPENDENCIES
   decidim!
   decidim-action_delegator!
   decidim-calendar!
+  decidim-challenges!
   decidim-conferences!
   decidim-consultations!
   decidim-decidim_awesome (~> 0.7.2)
@@ -939,7 +947,7 @@ DEPENDENCIES
   decidim-term_customizer!
   decidim-verifications-members_picker!
   delayed_job_active_record
-  faker (~> 1.8.4)
+  faker (~> 2.19.0)
   figaro (>= 1.1.1)
   geocoder (>= 1.6)
   listen (~> 3.1.0)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_144402) do
+ActiveRecord::Schema.define(version: 2022_06_01_132041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -396,6 +396,38 @@ ActiveRecord::Schema.define(version: 2022_03_07_144402) do
     t.datetime "updated_at", null: false
     t.index ["categorizable_type", "categorizable_id"], name: "decidim_categorizations_categorizable_id_and_type"
     t.index ["decidim_category_id"], name: "index_decidim_categorizations_on_decidim_category_id"
+  end
+
+  create_table "decidim_challenges_challenges", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "local_description"
+    t.jsonb "global_description"
+    t.bigint "decidim_component_id", null: false
+    t.jsonb "tags"
+    t.string "sdg_code"
+    t.bigint "decidim_scope_id"
+    t.integer "state", default: 0, null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "published_at"
+    t.string "coordinating_entities"
+    t.string "collaborating_entities"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "survey_enabled", default: false, null: false
+    t.string "card_image"
+    t.index ["decidim_component_id"], name: "index_decidim_challenges_challenges_on_decidim_component_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_challenges_challenges_on_decidim_scope_id"
+  end
+
+  create_table "decidim_challenges_surveys", force: :cascade do |t|
+    t.bigint "decidim_user_id", null: false
+    t.bigint "decidim_challenge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_challenge_id"], name: "index_decidim_challenges_surveys_on_decidim_challenge_id"
+    t.index ["decidim_user_id", "decidim_challenge_id"], name: "decidim_challenges_surveys_user_challenge_unique", unique: true
+    t.index ["decidim_user_id"], name: "index_decidim_challenges_surveys_on_decidim_user_id"
   end
 
   create_table "decidim_coauthorships", force: :cascade do |t|
@@ -1406,6 +1438,28 @@ ActiveRecord::Schema.define(version: 2022_03_07_144402) do
     t.index ["privatable_to_type", "privatable_to_id"], name: "space_privatable_to_privatable_id"
   end
 
+  create_table "decidim_problems_problems", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "description"
+    t.bigint "decidim_component_id", null: false
+    t.bigint "decidim_challenges_challenge_id", null: false
+    t.bigint "decidim_sectorial_scope_id"
+    t.bigint "decidim_technological_scope_id"
+    t.jsonb "tags"
+    t.string "causes"
+    t.string "groups_affected"
+    t.integer "state", default: 0, null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "published_at"
+    t.string "proposing_entities"
+    t.string "collaborating_entities"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_challenges_problems"
+    t.index ["decidim_component_id"], name: "index_decidim_problems_problems_on_decidim_component_id"
+  end
+
   create_table "decidim_proposals_collaborative_draft_collaborator_requests", force: :cascade do |t|
     t.bigint "decidim_proposals_collaborative_draft_id", null: false
     t.bigint "decidim_user_id", null: false
@@ -1613,6 +1667,26 @@ ActiveRecord::Schema.define(version: 2022_03_07_144402) do
     t.index ["token_for_type", "token_for_id"], name: "decidim_share_tokens_token_for"
   end
 
+  create_table "decidim_solutions_solutions", force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "description"
+    t.bigint "decidim_component_id", null: false
+    t.bigint "decidim_problems_problem_id"
+    t.jsonb "tags"
+    t.jsonb "indicators"
+    t.jsonb "beneficiaries"
+    t.jsonb "requirements"
+    t.jsonb "financing_type"
+    t.jsonb "objectives"
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "decidim_challenges_challenge_id"
+    t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
+    t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
+    t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
+  end
+
   create_table "decidim_sortitions_sortitions", force: :cascade do |t|
     t.bigint "decidim_component_id"
     t.integer "decidim_proposals_component_id"
@@ -1684,6 +1758,24 @@ ActiveRecord::Schema.define(version: 2022_03_07_144402) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_decidim_system_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_decidim_system_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "decidim_tags_taggings", force: :cascade do |t|
+    t.bigint "decidim_tags_tag_id", null: false
+    t.string "decidim_taggable_type", null: false
+    t.bigint "decidim_taggable_id", null: false
+    t.datetime "created_at"
+    t.index ["decidim_taggable_type", "decidim_taggable_id"], name: "index_on_decidim_tags_taggable"
+    t.index ["decidim_tags_tag_id", "decidim_taggable_id", "decidim_taggable_type"], name: "index_uniq_on_tags_tag_and_taggable", unique: true
+    t.index ["decidim_tags_tag_id"], name: "index_decidim_tags_taggings_on_decidim_tags_tag_id"
+  end
+
+  create_table "decidim_tags_tags", force: :cascade do |t|
+    t.jsonb "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "decidim_organization_id", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_tags_tags_on_decidim_organization_id"
   end
 
   create_table "decidim_term_customizer_constraints", force: :cascade do |t|
@@ -1946,6 +2038,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_144402) do
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"
   add_foreign_key "decidim_scopes", "decidim_scopes", column: "parent_id"
   add_foreign_key "decidim_static_pages", "decidim_organizations"
+  add_foreign_key "decidim_tags_tags", "decidim_organizations"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_organizations"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
