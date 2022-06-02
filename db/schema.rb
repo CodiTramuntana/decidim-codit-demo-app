@@ -1760,23 +1760,6 @@ ActiveRecord::Schema.define(version: 2022_06_01_132041) do
     t.index ["reset_password_token"], name: "index_decidim_system_admins_on_reset_password_token", unique: true
   end
 
-  create_table "decidim_tags_taggings", force: :cascade do |t|
-    t.bigint "decidim_tags_tag_id", null: false
-    t.string "decidim_taggable_type", null: false
-    t.bigint "decidim_taggable_id", null: false
-    t.datetime "created_at"
-    t.index ["decidim_taggable_type", "decidim_taggable_id"], name: "index_on_decidim_tags_taggable"
-    t.index ["decidim_tags_tag_id", "decidim_taggable_id", "decidim_taggable_type"], name: "index_uniq_on_tags_tag_and_taggable", unique: true
-    t.index ["decidim_tags_tag_id"], name: "index_decidim_tags_taggings_on_decidim_tags_tag_id"
-  end
-
-  create_table "decidim_tags_tags", force: :cascade do |t|
-    t.jsonb "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "decidim_organization_id", null: false
-    t.index ["decidim_organization_id"], name: "index_decidim_tags_tags_on_decidim_organization_id"
-  end
 
   create_table "decidim_term_customizer_constraints", force: :cascade do |t|
     t.bigint "decidim_organization_id", null: false
