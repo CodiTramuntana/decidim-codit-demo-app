@@ -8,7 +8,7 @@ DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-action_delegator", git: "https://github.com/coopdevs/decidim-module-action_delegator"
-gem "decidim-challenges", git:"https://github.com/gencat/decidim-module-challenges"
+gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", tag: 'v0.0.14'
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", tag: "v0.15.0"
