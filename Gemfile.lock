@@ -264,15 +264,6 @@ GIT
       decidim-verifications (>= 0.16.0)
 
 GIT
-  remote: https://github.com/luizsanches/decidim-module-calendar
-  revision: 0009dc7cb1a5303502093293cff535cb700028a7
-  tag: decidim-0.24.3
-  specs:
-    decidim-calendar (0.20.0)
-      decidim-admin (>= 0.20.0)
-      decidim-core (>= 0.20.0)
-
-GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: 4b385c55996e390406ac68a8b5ab68b9da2c8817
   branch: 0.24-stable
@@ -419,6 +410,10 @@ GEM
     db-query-matchers (0.9.0)
       activesupport (>= 4.0, <= 6.0)
       rspec (~> 3.0)
+    decidim-decidim_awesome (0.7.2)
+      decidim-admin (>= 0.23.0, < 0.25)
+      decidim-core (>= 0.23.0, < 0.25)
+      sassc (~> 2.3)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -615,7 +610,7 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.8)
     nobspw (0.6.2)
-    nokogiri (1.13.8)
+    nokogiri (1.13.4)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     nori (2.6.0)
@@ -932,10 +927,10 @@ DEPENDENCIES
   daemons
   decidim!
   decidim-action_delegator!
-  decidim-calendar!
   decidim-challenges!
   decidim-conferences!
   decidim-consultations!
+  decidim-decidim_awesome (~> 0.7.2)
   decidim-dev!
   decidim-file_authorization_handler!
   decidim-initiatives!
