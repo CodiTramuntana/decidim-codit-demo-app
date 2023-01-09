@@ -3,7 +3,7 @@
 Decidim.configure do |config|
   config.application_name = "My Decidim Name"
 
-  config.mailer_sender = "change-me@domain.org"
+  config.mailer_sender = Rails.application.secrets.smtp_username
 
   # Change these lines to set your preferred locales
   config.default_locale = :en
@@ -20,6 +20,9 @@ Decidim.configure do |config|
   # Image compression settings
   config.image_uploader_quality = 80
 end
+
+# Inform Decidim about the assets folder
+Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
