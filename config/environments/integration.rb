@@ -2,7 +2,6 @@
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -48,8 +47,9 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
-  # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "decidim_agusti_int_app_#{Rails.env}"
+  # config.active_job.queue_adapter = :delayed_job
+  config.active_job.queue_adapter = :delayed_job
+  # config.active_job.queue_name_prefix = "decidim_clean_app_#{Rails.env}"
   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
@@ -75,7 +75,8 @@ Rails.application.configure do
     password: Rails.application.secrets.smtp_password,
     domain: Rails.application.secrets.smtp_domain,
     enable_starttls_auto: Rails.application.secrets.smtp_starttls_auto,
-    openssl_verify_mode: "none"
+    openssl_verify_mode: "none",
+    ssl: true
   }
 
   if Rails.application.secrets.sendgrid
@@ -101,4 +102,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Store files locally.
+  config.active_storage.service = :local
 end
