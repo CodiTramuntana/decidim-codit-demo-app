@@ -19,6 +19,10 @@ Decidim.configure do |config|
 
   # Image compression settings
   config.image_uploader_quality = 80
+
+  # API schema settings
+  Decidim::Api::Schema.max_complexity = 5000
+  Decidim::Api::Schema.max_depth = 50
 end
 
 # Inform Decidim about the assets folder
