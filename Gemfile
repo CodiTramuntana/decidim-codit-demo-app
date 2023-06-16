@@ -7,7 +7,7 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.26-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-action_delegator", git: "https://github.com/coopdevs/decidim-module-action_delegator"
+gem "decidim-action_delegator", git: "https://github.com/CodiTramuntana/decidim-module-action_delegator"
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", tag: "v0.2.0"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION

@@ -9,6 +9,18 @@ GIT
       rails (>= 5.2)
 
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-action_delegator
+  revision: 0e092424def1b52ec1d2bb0a4faf0995effda46b
+  specs:
+    decidim-action_delegator (0.7.2)
+      decidim-admin (>= 0.26.0, < 0.27)
+      decidim-consultations (>= 0.26.0, < 0.27)
+      decidim-core (>= 0.26.0, < 0.27)
+      deface (>= 1.9)
+      savon
+      twilio-ruby
+
+GIT
   remote: https://github.com/CodiTramuntana/decidim.git
   revision: 88ca5dcf186e7498c1ecaa270508f574824b172e
   branch: release/0.26-stable
@@ -202,17 +214,6 @@ GIT
       decidim-core (= 0.26.4)
 
 GIT
-  remote: https://github.com/coopdevs/decidim-module-action_delegator
-  revision: 43629d3d387b7fe1756970241a185eee5180a817
-  specs:
-    decidim-action_delegator (0.6.0)
-      decidim-admin (>= 0.26.0, < 0.27.0)
-      decidim-consultations (>= 0.26.0, < 0.27.0)
-      decidim-core (>= 0.26.0, < 0.27.0)
-      savon
-      twilio-ruby
-
-GIT
   remote: https://github.com/gencat/decidim-module-challenges
   revision: 7934d646352fab324d7ff1d20b7c258ac2900fb1
   tag: v0.2.0
@@ -395,6 +396,12 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
+    deface (1.9.0)
+      actionview (>= 5.2)
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 5.2)
+      rainbow (>= 2.1.0)
     delayed_job (4.1.11)
       activesupport (>= 3.0, < 8.0)
     delayed_job_active_record (4.1.7)
@@ -552,7 +559,6 @@ GEM
       tomlrb
     mixlib-shellout (3.2.7)
       chef-utils
-    multi_json (1.15.0)
     multi_xml (0.6.0)
     mustache (1.1.1)
     net-imap (0.3.4)
@@ -618,6 +624,7 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    polyglot (0.3.5)
     premailer (1.18.0)
       addressable
       css_parser (>= 1.12.0)
@@ -806,10 +813,10 @@ GEM
     tilt (2.0.11)
     timeout (0.3.1)
     tomlrb (2.0.3)
-    twilio-ruby (3.11.6)
-      builder (>= 2.1.2)
-      jwt (>= 0.1.2)
-      multi_json (>= 1.3.0)
+    twilio-ruby (6.0.2)
+      faraday (>= 0.9, < 3.0)
+      jwt (>= 1.5, < 3.0)
+      nokogiri (>= 1.6, < 2.0)
     tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uber (0.1.0)
