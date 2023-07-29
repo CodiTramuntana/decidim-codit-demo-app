@@ -7,14 +7,16 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.26-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-action_delegator", git: "https://github.com/CodiTramuntana/decidim-module-action_delegator"
-gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", tag: "v0.2.0"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
-gem "decidim-decidim_awesome", "~> 0.8.1"
-gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", branch: "release/0.26-stable"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
+
+gem "decidim-action_delegator", git: "https://github.com/CodiTramuntana/decidim-module-action_delegator"
+gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", tag: "v0.2.0"
+gem "decidim-decidim_awesome", "~> 0.8.1"
+gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", branch: "release/0.26-stable"
+gem "decidim-newsletter_agenda", git: "https://github.com/openpoke/decidim-module-newsletter_agenda.git"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
 gem "decidim-verifications-members_picker", git: "https://github.com/gencat/decidim-verifications-members_picker.git"
 
