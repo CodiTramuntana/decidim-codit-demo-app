@@ -11,10 +11,10 @@ Decidim::NewsletterAgenda.configure do |config|
   config.default_font_color_over_bg = "#FFFFFF"
 
   # The default address text for the newsletter agenda.
-  # config.default_address_text = <<~ADDRESS
-  #   <b>Canòdrom</b><br>
-  #   <b>Ateneu d'Innovació Digital i Democràtica</b><br>
-  #   C/Concepció Arenal 165 - 09027 Barcelona <a href="https://canodrom.barcelona">canodrom.barcelona</a><br>
-  #   <a href="mailto:hola@canodrom">hola@canodrom.com</a>
-  # ADDRESS
+  config.default_address_text = <<~ADDRESS
+    <b>CodiTamuntana</b><br>
+    <b>Your idea our code</b><br>
+    Carrer Pic de Peguera 15 - 17003 Girona <a href="https://coditramuntana.com">https://coditramuntana.com</a><br>
+    <a href="mailto:info@coditramuntana.com">info@coditramuntana.com</a>
+  ADDRESS
 end
