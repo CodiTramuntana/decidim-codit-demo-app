@@ -238,15 +238,6 @@ GIT
       decidim-admin (~> 0.26.0)
       decidim-core (~> 0.26.0)
 
-GIT
-  remote: https://github.com/openpoke/decidim-module-newsletter_agenda.git
-  revision: 18b98d83d6ca1ec1c0f044c7673a13417b8b5523
-  specs:
-    decidim-newsletter_agenda (1.0.0)
-      date_range_formatter
-      decidim-admin (>= 0.26.0, < 0.27)
-      decidim-core (>= 0.26.0, < 0.27)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -393,8 +384,6 @@ GEM
       addressable
     daemons (1.4.1)
     date (3.3.3)
-    date_range_formatter (0.1.2)
-      activesupport (>= 3.2.0)
     date_validator (0.9.0)
       activemodel
       activesupport
@@ -908,7 +897,6 @@ DEPENDENCIES
   decidim-dev!
   decidim-file_authorization_handler!
   decidim-initiatives!
-  decidim-newsletter_agenda!
   decidim-sortitions!
   decidim-term_customizer!
   decidim-verifications-members_picker!
