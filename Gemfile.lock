@@ -21,6 +21,17 @@ GIT
       twilio-ruby
 
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-survey_results
+  revision: 8cc9967a7f3a328d30c3df4c211cb60a0cbc4dc8
+  branch: release/0.26-stable
+  specs:
+    decidim-survey_results (0.0.1)
+      decidim-core (>= 0.26.0)
+      decidim-forms (>= 0.26.0)
+      decidim-surveys (>= 0.26.0)
+      deface
+
+GIT
   remote: https://github.com/CodiTramuntana/decidim.git
   revision: 9204816fa76841ce8866cf1d652c4f03072adc21
   branch: release/0.26-stable
@@ -898,6 +909,7 @@ DEPENDENCIES
   decidim-file_authorization_handler!
   decidim-initiatives!
   decidim-sortitions!
+  decidim-survey_results!
   decidim-term_customizer!
   decidim-verifications-members_picker!
   delayed_job_active_record
