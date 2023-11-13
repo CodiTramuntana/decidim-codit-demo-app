@@ -225,6 +225,14 @@ GIT
       decidim-core (= 0.26.8)
 
 GIT
+  remote: https://github.com/digidemlab/decidim-module-budgets_paper_ballots
+  revision: 750d20ecc670859df85393c01a72902e20509562
+  specs:
+    decidim-budgets_paper_ballots (0.26.0)
+      decidim-budgets (>= 0.26.0)
+      decidim-core (>= 0.26.0)
+
+GIT
   remote: https://github.com/gencat/decidim-module-challenges
   revision: 7934d646352fab324d7ff1d20b7c258ac2900fb1
   tag: v0.2.0
@@ -901,6 +909,7 @@ DEPENDENCIES
   daemons
   decidim!
   decidim-action_delegator!
+  decidim-budgets_paper_ballots!
   decidim-challenges!
   decidim-conferences!
   decidim-consultations!
