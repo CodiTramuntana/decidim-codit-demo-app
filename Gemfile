@@ -16,7 +16,7 @@ gem "decidim-action_delegator", git: "https://github.com/CodiTramuntana/decidim-
 gem "decidim-budgets_paper_ballots", git: "https://github.com/digidemlab/decidim-module-budgets_paper_ballots"
 gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", tag: "v0.2.0"
 gem "decidim-decidim_awesome", "~> 0.8.1"
-gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", branch: "release/0.26-stable"
+gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", tag: "v0.26.8.8"
 gem "decidim-survey_multiple_answers"
 gem "decidim-survey_results", git: "https://github.com/CodiTramuntana/decidim-module-survey_results", branch: "release/0.26-stable"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
