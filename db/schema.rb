@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_09_154547) do
+ActiveRecord::Schema.define(version: 2024_01_09_135858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -879,6 +879,7 @@ ActiveRecord::Schema.define(version: 2023_11_09_154547) do
     t.string "id_document"
     t.date "birthdate"
     t.datetime "created_at", null: false
+    t.jsonb "extras"
     t.index ["decidim_organization_id"], name: "decidim_census_data_org_id_index"
   end
 
