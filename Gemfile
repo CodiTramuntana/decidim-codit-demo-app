@@ -4,12 +4,9 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.27-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.28-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
-
-# temporal solution while gems embrace new psych 4 (the default in Ruby 3.1) behavior.
-gem "psych", "< 4"
 
 gem "puma"
 gem "uglifier", ">= 1.3.0"
@@ -18,19 +15,20 @@ gem "webpacker"
 gem "figaro", ">= 1.1.1"
 gem "openssl"
 
-# if deploying to a dedicated server
-# gem "daemons"
-# gem "delayed_job_active_record"
-# gem "whenever"
-# elsif deploying to a PaaS like Heroku
-gem "redis"
-gem "sidekiq"
-group :production do
-  gem "aws-sdk-s3", require: false
-  gem "fog-aws"
-  gem "rack-ssl-enforcer"
-  gem "rails_12factor"
-end
+gem "daemons"
+gem "delayed_job_active_record"
+gem "whenever"
+
+# if deploying to a PaaS like Heroku
+# gem "redis"
+# gem "sidekiq"
+# group :production do
+# if AWS is used
+#   gem "aws-sdk-s3", require: false
+#   gem "fog-aws"
+#   gem "rack-ssl-enforcer"
+#   gem "rails_12factor"
+# end
 # endif
 
 group :development, :test do
