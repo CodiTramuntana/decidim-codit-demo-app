@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_09_135858) do
+ActiveRecord::Schema.define(version: 2024_01_24_132012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -876,7 +876,7 @@ ActiveRecord::Schema.define(version: 2024_01_09_135858) do
     t.bigint "resource_id"
     t.string "decidim_author_type"
     t.bigint "decidim_author_id"
-    t.integer "decidim_user_group_id"
+    t.integer "decidim_user_group_id", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_author_type", "decidim_author_id"], name: "idx_endorsements_authors"
@@ -1079,6 +1079,12 @@ ActiveRecord::Schema.define(version: 2024_01_09_135858) do
     t.index ["state"], name: "index_decidim_initiatives_committee_members_on_state"
   end
 
+  create_table "decidim_initiatives_settings", force: :cascade do |t|
+    t.string "initiatives_order", default: "random"
+    t.bigint "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_initiatives_settings_on_decidim_organization_id"
+  end
+
   create_table "decidim_initiatives_type_scopes", force: :cascade do |t|
     t.bigint "decidim_initiatives_types_id"
     t.bigint "decidim_scopes_id"
@@ -1109,6 +1115,7 @@ ActiveRecord::Schema.define(version: 2024_01_09_135858) do
     t.boolean "custom_signature_end_date_enabled", default: false, null: false
     t.boolean "attachments_enabled", default: false, null: false
     t.boolean "area_enabled", default: false, null: false
+    t.boolean "comments_enabled", default: true, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_initiative_types_on_decidim_organization_id"
   end
 
@@ -1948,6 +1955,18 @@ ActiveRecord::Schema.define(version: 2024_01_09_135858) do
     t.index ["reset_password_token"], name: "index_decidim_system_admins_on_reset_password_token", unique: true
   end
 
+  create_table "decidim_templates_templates", force: :cascade do |t|
+    t.integer "decidim_organization_id", null: false
+    t.string "templatable_type"
+    t.bigint "templatable_id"
+    t.jsonb "name", null: false
+    t.jsonb "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_templates_organization"
+    t.index ["templatable_type", "templatable_id"], name: "index_decidim_templates_templatable"
+  end
+
   create_table "decidim_term_customizer_constraints", force: :cascade do |t|
     t.bigint "decidim_organization_id", null: false
     t.string "subject_type"
@@ -2212,6 +2231,7 @@ ActiveRecord::Schema.define(version: 2024_01_09_135858) do
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
   add_foreign_key "decidim_identities", "decidim_organizations"
+  add_foreign_key "decidim_initiatives_settings", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_process_types", "decidim_organizations"
