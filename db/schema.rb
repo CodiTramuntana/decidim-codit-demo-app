@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_28_102452) do
+ActiveRecord::Schema.define(version: 2024_01_09_135858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1838,6 +1838,23 @@ ActiveRecord::Schema.define(version: 2022_12_28_102452) do
     t.index ["token_for_type", "token_for_id"], name: "decidim_share_tokens_token_for"
   end
 
+  create_table "decidim_short_links", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.string "target_type", null: false
+    t.bigint "target_id", null: false
+    t.string "identifier", limit: 10, null: false
+    t.string "mounted_engine_name"
+    t.string "route_name"
+    t.jsonb "params"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_organization_id", "identifier"], name: "idx_decidim_short_links_organization_id_identifier", unique: true
+    t.index ["decidim_organization_id"], name: "index_decidim_short_links_on_decidim_organization_id"
+    t.index ["mounted_engine_name"], name: "index_decidim_short_links_on_mounted_engine_name"
+    t.index ["route_name"], name: "index_decidim_short_links_on_route_name"
+    t.index ["target_type", "target_id"], name: "index_decidim_short_links_on_target"
+  end
+
   create_table "decidim_solutions_solutions", force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "description"
@@ -1856,23 +1873,6 @@ ActiveRecord::Schema.define(version: 2022_12_28_102452) do
     t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
     t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
     t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
-  end
-
-  create_table "decidim_short_links", force: :cascade do |t|
-    t.bigint "decidim_organization_id", null: false
-    t.string "target_type", null: false
-    t.bigint "target_id", null: false
-    t.string "identifier", limit: 10, null: false
-    t.string "mounted_engine_name"
-    t.string "route_name"
-    t.jsonb "params"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["decidim_organization_id", "identifier"], name: "idx_decidim_short_links_organization_id_identifier", unique: true
-    t.index ["decidim_organization_id"], name: "index_decidim_short_links_on_decidim_organization_id"
-    t.index ["mounted_engine_name"], name: "index_decidim_short_links_on_mounted_engine_name"
-    t.index ["route_name"], name: "index_decidim_short_links_on_route_name"
-    t.index ["target_type", "target_id"], name: "index_decidim_short_links_on_target"
   end
 
   create_table "decidim_sortitions_sortitions", force: :cascade do |t|
@@ -2185,10 +2185,10 @@ ActiveRecord::Schema.define(version: 2022_12_28_102452) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "decidim_action_delegator_delegations", "decidim_action_delegator_settings"
   add_foreign_key "decidim_action_delegator_participants", "decidim_users"
   add_foreign_key "decidim_action_delegator_settings", "decidim_consultations"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "decidim_area_types", "decidim_organizations"
   add_foreign_key "decidim_areas", "decidim_area_types", column: "area_type_id"
   add_foreign_key "decidim_areas", "decidim_organizations"
