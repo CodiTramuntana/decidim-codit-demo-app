@@ -8,10 +8,10 @@ DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch
 
 gem "decidim", DECIDIM_VERSION
 
-gem "puma"
 gem "daemons"
 gem "delayed_job_active_record"
 gem "openssl"
+gem "puma"
 gem "whenever"
 
 # TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289
