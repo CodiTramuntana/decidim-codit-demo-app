@@ -12,7 +12,8 @@ gem "puma"
 gem "uglifier", ">= 1.3.0"
 gem "webpacker"
 
-gem "figaro", ">= 1.1.1"
+# TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289 
+# gem "figaro"
 gem "openssl"
 
 gem "daemons"
