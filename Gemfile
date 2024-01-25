@@ -9,7 +9,6 @@ DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch
 gem "decidim", DECIDIM_VERSION
 
 gem "puma"
-gem "uglifier", ">= 1.3.0"
 
 # TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289 
 # gem "figaro"
