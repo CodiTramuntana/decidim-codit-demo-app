@@ -21,16 +21,17 @@ describe "Homepage" do
     visit decidim.root_path(locale: I18n.locale)
   end
 
-  it "loads and shows organization name and main blocks" do
-    visit decidim.root_path
-
-    expect(page).to have_content("Decidim Application")
-    within "section.hero .hero__container" do
-      expect(page).to have_content("Benvinguda a Decidim Application")
+  it "renders the home page" do
+    # By default there isn't any Content Block enabled, so we search a content from the header
+    within ".main-bar" do
+      expect(page).to have_content("Help")
     end
-    within "section.subhero" do
-      subhero_msg= translated(organization.description).gsub(%r{</p>\s+<p>}, "<br><br>").gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1")
-      expect(page).to have_content(subhero_msg)
+  end
+
+  it "loads and shows organization name" do
+    expect(page).to have_content("Decidim Application")
+    within "section.hero__container" do
+      expect(page).to have_content("Benvinguda a Decidim Application")
     end
   end
 end
