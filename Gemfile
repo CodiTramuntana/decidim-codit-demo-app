@@ -10,7 +10,6 @@ gem "decidim", DECIDIM_VERSION
 
 gem "puma"
 gem "uglifier", ">= 1.3.0"
-gem "webpacker"
 
 # TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289 
 # gem "figaro"
