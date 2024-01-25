@@ -9,14 +9,16 @@ DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch
 gem "decidim", DECIDIM_VERSION
 
 gem "puma"
+gem "daemons"
+gem "delayed_job_active_record"
+gem "openssl"
+gem "whenever"
 
 # TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289
 # gem "figaro"
-gem "openssl"
-
-gem "daemons"
-gem "delayed_job_active_record"
-gem "whenever"
+# This gem is an alternative to Figaro meanwhile fix that problem in Figaro.
+# https://github.com/hlascelles/figjam
+gem "figjam"
 
 # if deploying to a PaaS like Heroku
 # gem "redis"
