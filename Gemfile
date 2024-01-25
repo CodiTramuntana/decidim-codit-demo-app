@@ -10,7 +10,7 @@ gem "decidim", DECIDIM_VERSION
 
 gem "puma"
 
-# TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289 
+# TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289
 # gem "figaro"
 gem "openssl"
 
