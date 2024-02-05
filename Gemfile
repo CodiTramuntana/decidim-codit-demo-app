@@ -15,7 +15,7 @@ gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-action_delegator", git: "https://github.com/CodiTramuntana/decidim-module-action_delegator"
 gem "decidim-budgets_paper_ballots", git: "https://github.com/digidemlab/decidim-module-budgets_paper_ballots"
 gem "decidim-cdtb", git: "https://github.com/CodiTramuntana/decidim-module-cdtb.git", branch: "main"
-gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", branch: "bump/ruby_version"
+gem "decidim-challenges", git: "https://github.com/gencat/decidim-module-challenges", tag: "v0.3.1"
 gem "decidim-decidim_awesome", "~> 0.9.2"
 gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", tag: "v0.27.1.6"
 gem "decidim-survey_multiple_answers"

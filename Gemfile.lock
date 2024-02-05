@@ -242,10 +242,10 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-module-challenges
-  revision: 9b6abd511662afcca4a515ec9b178714790ae0dc
-  branch: bump/ruby_version
+  revision: 836c32069b00610d3dce8249e1ced558abe6d574
+  tag: v0.3.1
   specs:
-    decidim-challenges (0.3.2)
+    decidim-challenges (0.3.1)
       decidim-core (~> 0.27)
 
 GIT
