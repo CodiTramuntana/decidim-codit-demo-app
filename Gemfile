@@ -28,6 +28,8 @@ gem "psych", "< 4"
 
 gem "rails", ">= 5.2.6.3"
 
+# required by puma
+gem "matrix"
 gem "puma", ">= 5.6.2"
 gem "uglifier", ">= 1.3.0"
 gem "webpacker"
