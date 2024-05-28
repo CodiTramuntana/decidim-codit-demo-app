@@ -820,7 +820,6 @@ DEPENDENCIES
   figjam
   letter_opener_web
   listen
-  matrix
   openssl
   puma
   spring
