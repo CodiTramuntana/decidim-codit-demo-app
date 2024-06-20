@@ -25,7 +25,6 @@ gem "rails", ">= 5.2.6.3"
 
 # required by puma
 gem "matrix"
-gem "webpacker"
 
 gem "daemons"
 gem "delayed_job_active_record"
