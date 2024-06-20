@@ -24,7 +24,7 @@ describe "Homepage" do
   it "renders the home page" do
     # By default there isn't any Content Block enabled, so we search a content from the header
     within ".main-bar" do
-      expect(page).to have_content("Help")
+      expect(page).to have_content("Ajuda")
     end
   end
 
@@ -34,7 +34,7 @@ describe "Homepage" do
     expect(page).to have_content("Decidim Application")
 
     within "section .hero .hero__title" do
-      expect(page).to have_content("Welcome to Decidim Application")
+      expect(page).to have_content("Benvinguda a Decidim Application")
     end
 
     within "section#sub_hero" do
