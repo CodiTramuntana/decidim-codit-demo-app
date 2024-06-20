@@ -28,10 +28,18 @@ describe "Homepage" do
     end
   end
 
-  it "loads and shows organization name" do
+  it "loads and shows organization name and main blocks" do
+    visit decidim.root_path
+
     expect(page).to have_content("Decidim Application")
-    within "section.hero__container" do
-      expect(page).to have_content("Benvinguda a Decidim Application")
+
+    within "section .hero .hero__title" do
+      expect(page).to have_content("Welcome to Decidim Application")
+    end
+
+    within "section#sub_hero" do
+      subhero_msg = translated(organization.description).gsub(%r{</p>\s+<p>}, "<br><br>").gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1").gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
+      expect(page).to have_content(subhero_msg)
     end
   end
 end
