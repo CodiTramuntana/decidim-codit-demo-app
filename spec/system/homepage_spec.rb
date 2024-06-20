@@ -24,7 +24,7 @@ describe "Homepage" do
   it "renders the home page" do
     # By default there isn't any Content Block enabled, so we search a content from the header
     within ".main-bar" do
-      expect(page).to have_content("Ajuda")
+      expect(page).to have_content("Help")
     end
   end
 
