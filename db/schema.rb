@@ -1470,20 +1470,6 @@ ActiveRecord::Schema.define(version: 2024_06_20_090860) do
     t.index ["reset_password_token"], name: "index_decidim_system_admins_on_reset_password_token", unique: true
   end
 
-  create_table "decidim_templates_templates", force: :cascade do |t|
-    t.integer "decidim_organization_id", null: false
-    t.string "templatable_type"
-    t.bigint "templatable_id"
-    t.jsonb "name", null: false
-    t.jsonb "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.json "field_values", default: {}
-    t.string "target"
-    t.index ["decidim_organization_id"], name: "index_decidim_templates_organization"
-    t.index ["templatable_type", "templatable_id"], name: "index_decidim_templates_templatable"
-  end
-
   create_table "decidim_user_blocks", force: :cascade do |t|
     t.bigint "decidim_user_id"
     t.integer "blocking_user_id"
