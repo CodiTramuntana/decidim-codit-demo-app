@@ -12,8 +12,8 @@ default: &default
 
   # Database configuration
   DB_PORT: "5432"
-  DB_POOL: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  DB_HOST: <%= ENV.fetch("DB_HOST") %>
+  DB_POOL: "<%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>"
+  DB_HOST: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
   DB_DATABASE: "clean_app_dev"
   DB_USERNAME: "db_username"
   DB_PASSWORD: "db_password"
