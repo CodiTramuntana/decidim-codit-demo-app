@@ -354,7 +354,7 @@ ActiveRecord::Schema.define(version: 2024_07_15_142358) do
   end
 
   create_table "decidim_awesome_config", force: :cascade do |t|
-    t.string "var"
+    t.jsonb "var"
     t.jsonb "value"
     t.integer "decidim_organization_id"
     t.datetime "created_at", null: false
@@ -497,7 +497,6 @@ ActiveRecord::Schema.define(version: 2024_07_15_142358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "survey_enabled", default: false, null: false
-    t.string "card_image"
     t.index ["decidim_component_id"], name: "index_decidim_challenges_challenges_on_decidim_component_id"
     t.index ["decidim_scope_id"], name: "index_decidim_challenges_challenges_on_decidim_scope_id"
   end
@@ -1886,7 +1885,7 @@ ActiveRecord::Schema.define(version: 2024_07_15_142358) do
     t.jsonb "title"
     t.jsonb "description"
     t.bigint "decidim_component_id", null: false
-    t.bigint "decidim_problems_problem_id"
+    t.bigint "decidim_problems_problem_id", null: false
     t.jsonb "tags"
     t.jsonb "indicators"
     t.jsonb "beneficiaries"
@@ -1896,8 +1895,6 @@ ActiveRecord::Schema.define(version: 2024_07_15_142358) do
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "decidim_challenges_challenge_id"
-    t.index ["decidim_challenges_challenge_id"], name: "decidim_challenges_solutions"
     t.index ["decidim_component_id"], name: "index_decidim_solutions_solutions_on_decidim_component_id"
     t.index ["decidim_problems_problem_id"], name: "decidim_challenges_problems_solutions"
   end
@@ -1973,6 +1970,20 @@ ActiveRecord::Schema.define(version: 2024_07_15_142358) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_decidim_system_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_decidim_system_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "decidim_templates_templates", force: :cascade do |t|
+    t.integer "decidim_organization_id", null: false
+    t.string "templatable_type"
+    t.bigint "templatable_id"
+    t.jsonb "name", null: false
+    t.jsonb "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.json "field_values", default: {}
+    t.string "target"
+    t.index ["decidim_organization_id"], name: "index_decidim_templates_organization"
+    t.index ["templatable_type", "templatable_id"], name: "index_decidim_templates_templatable"
   end
 
   create_table "decidim_term_customizer_constraints", force: :cascade do |t|
