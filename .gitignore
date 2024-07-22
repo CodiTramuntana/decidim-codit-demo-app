@@ -15,7 +15,6 @@
 
 .byebug_history
 .rspec-failures
-consultations_removal.bash
 
 # Ignore public uploads
 public/uploads/
