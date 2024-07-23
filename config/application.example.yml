@@ -33,7 +33,7 @@ development:
 
 test:
   <<: *default
-  DB_TEST_DATABASE: "codit_demo_app-test"
+  DB_TEST_DATABASE: "codit_demo_app_test"
 
 integration:
   <<: *default
