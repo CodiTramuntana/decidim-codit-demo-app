@@ -2,7 +2,7 @@
 
 env :PATH, ENV.fetch("PATH", nil)
 
-every 1.day, at: "2:00 am" do
+every :monday, at: "3:00 am" do
   rake "tmp:clear"
 end
 
