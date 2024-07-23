@@ -14,7 +14,7 @@ gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-cdtb"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "main"
 
-# 7zip problems temporal fix 
+# 7zip problems temporal fix
 # https://github.com/masamitsu-murase/seven_zip_ruby/issues/41
 gem "seven_zip_ruby", git: "https://github.com/andrewhamon/seven_zip_ruby", branch: "ah/install-so-in-gem-lib"
 
@@ -36,7 +36,6 @@ gem "geocoder", ">= 1.6"
 gem "openssl"
 gem "puma"
 gem "whenever"
-
 
 group :development, :test do
   gem "byebug", platform: :mri
