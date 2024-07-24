@@ -14,6 +14,10 @@ gem "decidim-sortitions", DECIDIM_VERSION
 gem "decidim-cdtb"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "main"
 
+# 7zip problems temporal fix
+# https://github.com/masamitsu-murase/seven_zip_ruby/issues/41
+gem "seven_zip_ruby", git: "https://github.com/andrewhamon/seven_zip_ruby", branch: "ah/install-so-in-gem-lib"
+
 # TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289
 # gem "figaro"
 # This gem is an alternative to Figaro meanwhile fix that problem in Figaro.
@@ -45,6 +49,7 @@ end
 
 group :development do
   gem "letter_opener_web"
+
   gem "listen"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
