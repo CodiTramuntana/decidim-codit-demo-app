@@ -1,93 +1,24 @@
 <div class="content"><h1>
-<a id="commentable" class="anchor" href="#commentable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Commentable</h1>
-<p>A commentable object</p>
-<h2>
-<a id="implements" class="anchor" href="#implements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implements</h2>
-<ul>
-   <li><code><a href="/api/docs/interface/commentableinterface">CommentableInterface</a></code></li>
-</ul>
+<a id="challengeconnection" class="anchor" href="#challengeconnection" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ChallengeConnection</h1>
+<p>The connection type for Challenge.</p>
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
 <div class="field-entry ">
-  <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
+  <span id="edges" class="field-name anchored">edges (<code><a href="/api/docs/object/challengeedge">[ChallengeEdge]</a></code>)</span>
   <div class="description-wrapper">
-   <p>The commentable's ID</p>
+   <p>A list of edges.</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="type" class="field-name anchored">type (<code><a href="/api/docs/scalar/string">String!</a></code>)</span>
+  <span id="nodes" class="field-name anchored">nodes (<code><a href="/api/docs/object/challenge">[Challenge]</a></code>)</span>
   <div class="description-wrapper">
-   <p>The commentable's class name. i.e. <code>Decidim::ParticipatoryProcess</code></p>
+   <p>A list of nodes.</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="acceptsnewcomments" class="field-name anchored">acceptsNewComments (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <span id="pageinfo" class="field-name anchored">pageInfo (<code><a href="/api/docs/object/pageinfo">PageInfo!</a></code>)</span>
   <div class="description-wrapper">
-   <p>Whether the object can have new comments or not</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="commentshavealignment" class="field-name anchored">commentsHaveAlignment (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Whether the object comments have alignment or not</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="commentshavevotes" class="field-name anchored">commentsHaveVotes (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Whether the object comments have votes or not</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="comments" class="field-name anchored">comments (<code><a href="/api/docs/object/comment">[Comment!]!</a></code>)</span>
-  <div class="description-wrapper">
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">orderBy</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>Order the comments</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">singleCommentId</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>ID of the single comment to look at</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="totalcommentscount" class="field-name anchored">totalCommentsCount (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The number of comments in all levels this resource holds</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="hascomments" class="field-name anchored">hasComments (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Check if the commentable has comments</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="userallowedtocomment" class="field-name anchored">userAllowedToComment (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Check if the current user can comment</p>
+   <p>Information to aid in pagination.</p>
   </div>
 </div></div>
 <div id="sidebar"><ul class="categories">
@@ -225,6 +156,34 @@
       
         
       <li>
+        <a href="/api/docs/object/challenge/" class="sidebar-link">
+          Challenge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/challengeconnection/" class="sidebar-link">
+          ChallengeConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/challengeedge/" class="sidebar-link">
+          ChallengeEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/challenges/" class="sidebar-link">
+          Challenges
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/comment/" class="sidebar-link">
           Comment
         </a>
@@ -239,15 +198,15 @@
       
         
       <li>
-        <a href="/api/docs/object/commentable/" class="sidebar-link">
-          Commentable
+        <a href="/api/docs/object/commentablemutation/" class="sidebar-link">
+          CommentableMutation
         </a>
       </li>
       
         
       <li>
-        <a href="/api/docs/object/commentablemutation/" class="sidebar-link">
-          CommentableMutation
+        <a href="/api/docs/object/component/" class="sidebar-link">
+          Component
         </a>
       </li>
       
@@ -353,6 +312,13 @@
       <li>
         <a href="/api/docs/object/initiativetype/" class="sidebar-link">
           InitiativeType
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/localizedcustomfields/" class="sidebar-link">
+          LocalizedCustomFields
         </a>
       </li>
       
@@ -540,6 +506,34 @@
       
         
       <li>
+        <a href="/api/docs/object/problem/" class="sidebar-link">
+          Problem
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/problemconnection/" class="sidebar-link">
+          ProblemConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/problemedge/" class="sidebar-link">
+          ProblemEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/problems/" class="sidebar-link">
+          Problems
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/project/" class="sidebar-link">
           Project
         </a>
@@ -631,6 +625,34 @@
       
         
       <li>
+        <a href="/api/docs/object/solution/" class="sidebar-link">
+          Solution
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/solutionconnection/" class="sidebar-link">
+          SolutionConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/solutionedge/" class="sidebar-link">
+          SolutionEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/solutions/" class="sidebar-link">
+          Solutions
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/sortition/" class="sidebar-link">
           Sortition
         </a>
@@ -710,6 +732,13 @@
       <li>
         <a href="/api/docs/object/traceversion/" class="sidebar-link">
           TraceVersion
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/translatedcustomfields/" class="sidebar-link">
+          TranslatedCustomFields
         </a>
       </li>
       
