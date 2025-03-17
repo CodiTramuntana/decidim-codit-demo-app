@@ -60,6 +60,9 @@ jobs:
       - name: Set bundle local config vendor/bundle path
         run: bundle config set --local path 'vendor/bundle'
 
+      - name: Install ImageMagick
+        run: sudo apt install imagemagick
+
       - name: Install Ruby deps
         uses: nick-invision/retry@v2
         with:
