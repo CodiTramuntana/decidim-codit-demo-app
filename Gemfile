@@ -12,6 +12,9 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 
 gem "decidim-cdtb"
+gem "decidim-challenges", "0.5.1"
+gem "decidim-decidim_awesome", "0.11.4"
+gem "decidim-file_authorization_handler", git: "https://github.com/coditramuntana/decidim-file_authorization_handler", tag: "v0.28.2.0"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "main"
 
 # 7zip problems temporal fix
