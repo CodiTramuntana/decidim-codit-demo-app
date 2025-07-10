@@ -23,4 +23,14 @@ user.save!
 5. Set the correct default host for the organization, otherwise the app will not work properly. Note that you need to include any subdomain you might be using.
 6. Fill the rest of the form and submit it.
 
-You're good to go!
+## Testing
+
+Run `bin/rake decidim:generate_external_test_app` to generate a dummy application to test both the application and the modules.
+
+Require missing factories in `spec/factories.rb`
+
+Add `require "rails_helper"` to your specs and execute them from the **root directory**, i.e.:
+
+## Migrate an app to synchronize from clean-app
+
+Documentation in `docs/migrate_to_clean_app.md`.
