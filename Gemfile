@@ -47,6 +47,10 @@ group :development, :test do
   gem "byebug", platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
   gem "faker"
+  gem "rspec-rails", "~> 6.0.4"
+  gem "rubocop-factory_bot", "~> 2.26.0"
+  gem "rubocop-rspec", "~> 3.0"
+  gem "rubocop-rspec_rails", "~> 2.30"
 end
 
 group :development do

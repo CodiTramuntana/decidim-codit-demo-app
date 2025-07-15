@@ -384,7 +384,7 @@ GEM
       mime-types
     fog-local (0.9.0)
       fog-core (>= 1.27, < 3.0)
-    formatador (1.1.0)
+    formatador (1.1.1)
     foundation_rails_helper (4.0.1)
       actionpack (>= 4.1, < 7.1)
       activemodel (>= 4.1, < 7.1)
@@ -438,7 +438,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
-    io-console (0.8.0)
+    io-console (0.8.1)
     json (2.12.2)
     jwt (3.1.2)
       base64
@@ -484,7 +484,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0701)
+    mime-types-data (3.2025.0708)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.5)
@@ -658,14 +658,14 @@ GEM
     rspec-mocks (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-rails (6.1.5)
+    rspec-rails (6.0.4)
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       railties (>= 6.1)
-      rspec-core (~> 3.13)
-      rspec-expectations (~> 3.13)
-      rspec-mocks (~> 3.13)
-      rspec-support (~> 3.13)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
     rspec-retry (0.6.2)
       rspec-core (> 3.3)
     rspec-support (3.13.4)
@@ -819,6 +819,10 @@ DEPENDENCIES
   openssl
   puma
   rails (>= 5.2.6.3)
+  rspec-rails (~> 6.0.4)
+  rubocop-factory_bot (~> 2.26.0)
+  rubocop-rspec (~> 3.0)
+  rubocop-rspec_rails (~> 2.30)
   seven_zip_ruby!
   web-console
   whenever

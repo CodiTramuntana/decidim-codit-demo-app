@@ -1,6 +1,4 @@
 inherit_from:
   - .rubocop_ruby.yml
   - .rubocop_rails.yml
-
-RSpec/MultipleMemoizedHelpers:
-  Max: 15
+  - .rubocop-rspec.yml
