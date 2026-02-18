@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.29-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.30-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -12,10 +12,11 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 
 gem "decidim-cdtb"
-gem "decidim-challenges", git: "http://github.com/gencat/decidim-module-challenges", branch: "master"
-gem "decidim-decidim_awesome", "0.12.0"
-gem "decidim-file_authorization_handler", git: "https://github.com/coditramuntana/decidim-file_authorization_handler", tag: "v0.29.2"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "main"
+# NOT compatible with 0.30
+# gem "decidim-challenges", git: "http://github.com/gencat/decidim-module-challenges", branch: "master"
+gem "decidim-decidim_awesome", "0.13.1"
+gem "decidim-file_authorization_handler", git: "https://github.com/coditramuntana/decidim-file_authorization_handler", branch: "master"
+gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer", branch: "upgrade/decidim_0.30"
 
 # 7zip problems temporal fix
 # https://github.com/masamitsu-murase/seven_zip_ruby/issues/41
@@ -42,9 +43,10 @@ gem "whenever"
 gem "concurrent-ruby"
 
 group :development, :test do
-  gem "byebug", platform: :mri
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "bootsnap"
   gem "decidim-dev", DECIDIM_VERSION
-  gem "faker"
 end
 
 group :development do
