@@ -32,6 +32,7 @@ gem "figjam"
 gem "matrix"
 
 gem "daemons"
+gem "delayed_job", "~> 4.1.13"
 gem "delayed_job_active_record"
 
 gem "geocoder", ">= 1.6"
