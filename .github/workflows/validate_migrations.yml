@@ -12,7 +12,7 @@ env:
   DB_DATABASE: app
   DB_USERNAME: postgres
   DB_PASSWORD: postgres
-  RUBY_VERSION: 3.1.1
+  RUBY_VERSION: 3.2.2
 
 jobs:
   test:
@@ -70,6 +70,9 @@ jobs:
           max_attempts: 3
           retry_on: error
           command: bundle install --jobs 4 --retry 3
+
+      - name: Create empty application.yml
+        run: touch config/application.yml
 
       - run: bundle exec rake db:test:prepare
         name: Setup database
