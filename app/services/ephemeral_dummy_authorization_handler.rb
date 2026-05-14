@@ -7,4 +7,3 @@ class EphemeralDummyAuthorizationHandler < DummyAuthorizationHandler
     "dummy_authorization/form"
   end
 end
-  
