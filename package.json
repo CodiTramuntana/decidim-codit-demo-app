@@ -1,6 +1,10 @@
 {
   "name": "decidim_demo_app",
   "private": true,
+  "resolutions": {
+    "workbox-webpack-plugin": "7.0.0",
+    "markdown-it": "14.1.0"
+  },
   "dependencies": {
     "@decidim/browserslist-config": "file:packages/browserslist-config",
     "@decidim/core": "file:packages/core",
