@@ -64,14 +64,4 @@ if Decidim.module_installed? :verifications
   Decidim::Verifications.configure do |config|
     config.document_types = Rails.application.secrets.dig(:verifications, :document_types).presence || %w(identification_number passport)
   end
-
-  # Enable Ephemeral Verification
-  Decidim::Verifications.register_workflow(:ephemeral_dummy_authorization_handler) do |workflow|
-    workflow.ephemeral = true
-    workflow.form = "EphemeralDummyAuthorizationHandler"
-    workflow.action_authorizer = "DummyAuthorizationHandler::DummyActionAuthorizer"
-    workflow.expires_in = 1.month
-    workflow.renewable = false
-    workflow.time_between_renewals = 5.minutes
-  end
 end
