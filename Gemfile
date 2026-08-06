@@ -10,13 +10,11 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
-
-gem "decidim-cdtb"
-
-gem "decidim-challenges", git: "http://github.com/gencat/decidim-module-challenges", branch: "upgrade/release-0.30"
-gem "decidim-decidim_awesome", "0.13.1"
-gem "decidim-file_authorization_handler", git: "https://github.com/coditramuntana/decidim-file_authorization_handler", branch: "master"
-gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer", branch: "upgrade/decidim_0.30"
+# gem "decidim-cdtb"
+# gem "decidim-challenges", git: "http://github.com/gencat/decidim-module-challenges", branch: "upgrade/release-0.30"
+# gem "decidim-decidim_awesome", "0.13.1"
+# gem "decidim-file_authorization_handler", git: "https://github.com/coditramuntana/decidim-file_authorization_handler", branch: "master"
+# gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer", branch: "upgrade/decidim_0.30"
 
 # 7zip problems temporal fix
 # https://github.com/masamitsu-murase/seven_zip_ruby/issues/41
