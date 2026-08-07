@@ -4,3 +4,6 @@ inherit_from:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 15
+
+inherit_gem:
+  decidim-dev: rubocop-decidim.yml

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_08_06_092941) do
+ActiveRecord::Schema[7.2].define(version: 2026_08_06_122573) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -436,7 +436,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_08_06_092941) do
     t.integer "decidim_author_id", null: false
     t.string "decidim_author_type", null: false
     t.integer "decidim_user_group_id"
-    t.integer "endorsements_count", default: 0, null: false
+    t.integer "likes_count", default: 0, null: false
     t.integer "comments_count", default: 0, null: false
     t.integer "follows_count", default: 0, null: false
     t.datetime "published_at", precision: nil

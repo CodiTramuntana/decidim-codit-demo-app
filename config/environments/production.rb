@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/integer/time"
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+
   # Code is not reloaded between requests.
-  config.cache_classes = true
+  config.enable_reloading = false
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -72,18 +75,18 @@ Rails.application.configure do
   config.log_formatter = Logger::Formatter.new
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: Rails.application.secrets.smtp_address,
-    port: Rails.application.secrets.smtp_port,
-    authentication: Rails.application.secrets.smtp_authentication,
-    user_name: Rails.application.secrets.smtp_username,
-    password: Rails.application.secrets.smtp_password,
-    domain: Rails.application.secrets.smtp_domain,
-    enable_starttls_auto: Rails.application.secrets.smtp_starttls_auto,
+    address: ENV["MAILER_SMTP_ADDRESS"] || "smtp.sendgrid.net",
+    port: ENV["MAILER_SMTP_PORT"] || "587",
+    authentication: ENV.fetch("MAILER_SMTP_AUTHENTICATION", "plain"),
+    user_name: ENV["MAILER_SMTP_USER_NAME"] || ENV["SENDGRID_USERNAME"],
+    password: ENV["MAILER_SMTP_PASSWORD"] || ENV["SENDGRID_PASSWORD"],
+    domain: ENV["MAILER_SMTP_DOMAIN"] || "heroku.com",
+    enable_starttls_auto: ENV.fetch("MAILER_SMTP_STARTTLS_AUTO", "true") == "true",
     openssl_verify_mode: "none",
     ssl: true
   }
 
-  if Rails.application.secrets.sendgrid
+  if ENV["SENDGRID_USERNAME"].present?
     config.action_mailer.default_options = {
       "X-SMTPAPI" => {
         filters: {
