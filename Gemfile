@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.30-stable" }.freeze
+DECIDIM_VERSION = "0.31.7"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -35,7 +35,7 @@ gem "delayed_job_active_record"
 
 gem "geocoder", ">= 1.6"
 gem "openssl"
-gem "puma"
+gem "puma", ">= 6.3.1"
 gem "whenever"
 
 # concurrent-ruby v1.3.5 has removed the dependency on logger
@@ -44,13 +44,19 @@ gem "concurrent-ruby"
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "bootsnap"
+  gem "bootsnap", "~> 1.3"
+  gem "brakeman", "~> 7.0"
   gem "decidim-dev", DECIDIM_VERSION
+
+  gem "byebug", "~> 11.0", platform: :mri
+
+  gem "net-imap", "~> 0.5.0"
+  gem "net-pop", "~> 0.1.1"
 end
 
 group :development do
-  gem "letter_opener_web"
+  gem "letter_opener_web", "~> 2.0"
 
-  gem "listen"
-  gem "web-console"
+  gem "listen", "~> 3.1"
+  gem "web-console", "~> 4.2"
 end
