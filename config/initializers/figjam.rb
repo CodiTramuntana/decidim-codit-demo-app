@@ -11,7 +11,7 @@ unless env.development? || env.test?
   keys += %w(GEOCODER_LOOKUP_API_KEY)
 end
 
-example_config_path = Rails.root.join("config", "application.example.yml")
+example_config_path = Rails.root.join("config/application.example.yml")
 if File.exist?(example_config_path)
   example_config = YAML.safe_load(ERB.new(File.read(example_config_path)).result, aliases: true) || {}
   example_defaults = example_config.fetch("default", {})
