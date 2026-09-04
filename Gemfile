@@ -17,9 +17,7 @@ gem "whenever"
 
 # TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289
 # gem "figaro"
-# This gem is an alternative to Figaro meanwhile fix that problem in Figaro.
-# https://github.com/hlascelles/figjam
-gem "figjam"
+gem 'dotenv', '>= 3.2'
 
 # if deploying to a PaaS like Heroku
 # gem "redis"

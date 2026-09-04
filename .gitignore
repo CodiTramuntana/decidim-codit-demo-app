@@ -21,6 +21,14 @@ public/uploads/
 # Ignore application configuration
 /config/application.yml
 /config/puma.rb
+/.env
+/.env.local
+/.env.development
+/.env.test
+/.env.production
+/.env.development.local
+/.env.test.local
+/.env.production.local
 # Ignore deploy secrets
 /config/deploy.rb
 /config/deploy/*

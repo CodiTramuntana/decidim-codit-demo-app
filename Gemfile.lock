@@ -393,6 +393,7 @@ GEM
     doorkeeper (5.9.6)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
+    dotenv (3.2.0)
     drb (2.2.3)
     dry-auto_inject (1.2.1)
       dry-core (~> 1.1)
@@ -442,8 +443,6 @@ GEM
     ffi (1.17.4-x86_64-linux-gnu)
     ffi (1.17.4-x86_64-linux-musl)
     fiber-storage (1.0.1)
-    figjam (3.0.1)
-      thor (>= 0.14.0, < 2)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -1016,7 +1015,7 @@ DEPENDENCIES
   decidim-cdtb!
   decidim-dev!
   delayed_job_active_record
-  figjam
+  dotenv (>= 3.2)
   letter_opener_web
   listen
   openssl
@@ -1115,6 +1114,7 @@ CHECKSUMS
   docile (1.4.1) sha256=96159be799bfa73cdb721b840e9802126e4e03dfc26863db73647204c727f21e
   doorkeeper (5.9.6) sha256=19b0d2c1099750762d8ddbf7ef4d79e38d2c80f583d97bbfd122a73c4af20d95
   doorkeeper-i18n (4.0.1) sha256=ef25cd7124cd66dbc6410b54b216897be294b328732dfa18dceaf66106a9c6d5
+  dotenv (3.2.0) sha256=e375b83121ea7ca4ce20f214740076129ab8514cd81378161f11c03853fe619d
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
   dry-auto_inject (1.2.1) sha256=dedddc8a13fcdf320def7d6741ce7d6da48d749c6d43175ef0072c0be2ba47c8
   dry-configurable (1.4.0) sha256=e35d1b5f3c081753ef361f564919db79000f32cfa6f20ee3a3ba5921b41b73ce
@@ -1140,7 +1140,6 @@ CHECKSUMS
   ffi (1.17.4-x86_64-linux-gnu) sha256=9d3db14c2eae074b382fa9c083fe95aec6e0a1451da249eab096c34002bc752d
   ffi (1.17.4-x86_64-linux-musl) sha256=3fdf9888483de005f8ef8d1cf2d3b20d86626af206cbf780f6a6a12439a9c49e
   fiber-storage (1.0.1) sha256=f48e5b6d8b0be96dac486332b55cee82240057065dc761c1ea692b2e719240e1
-  figjam (3.0.1) sha256=d4495f8d4db1c06455a8bc259839bb155f389b7cd8a4977b965793560cb0ab2d
   file_validators (3.0.0) sha256=43700f0c1fe9b235bf7f4701375e1d2f9391352ab26723f123b934724db8067b
   fog-core (2.6.0) sha256=3fe08aa83a23cddce42f4ba412040c08f890d7ff04c175c0ee59119371245be6
   fog-local (0.9.0) sha256=2bb5ffb153343a2d641018e2571155ebabd11908a7133504ead7ee03586a6a1c
