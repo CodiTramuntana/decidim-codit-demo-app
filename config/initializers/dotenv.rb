@@ -2,7 +2,7 @@
 
 keys = %w(SECRET_KEY_BASE DB_DATABASE DB_PASSWORD DB_USERNAME)
 
-unless Rails.env.development? || Rails.env.test?
+unless Rails.env.local?
   keys += %w(
     MAILER_SMTP_ADDRESS
     MAILER_SMTP_DOMAIN
