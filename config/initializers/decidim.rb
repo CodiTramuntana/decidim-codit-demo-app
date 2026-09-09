@@ -2,10 +2,10 @@
 
 Decidim.configure do |config|
   # The name of the application
-  config.application_name = ENV["DECIDIM_APPLICATION_NAME"]
+  config.application_name = ENV.fetch("DECIDIM_APPLICATION_NAME", nil)
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = ENV["DECIDIM_MAILER_SENDER"]
+  config.mailer_sender = ENV.fetch("DECIDIM_MAILER_SENDER", nil)
 
   # Sets the list of available locales for the whole application.
   #
