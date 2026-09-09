@@ -1,21 +1,20 @@
 # frozen_string_literal: true
 
-bool = ->(value) { ActiveModel::Type::Boolean.new.cast(value) }
-
 Decidim.configure do |config|
   # The name of the application
-  config.application_name = ENV.fetch("DECIDIM_APPLICATION_NAME", "Decidim Clean APP")
+  config.application_name = ENV["DECIDIM_APPLICATION_NAME"]
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = ENV["DECIDIM_MAILER_SENDER"] if ENV["DECIDIM_MAILER_SENDER"].present?
+  config.mailer_sender = ENV["DECIDIM_MAILER_SENDER"]
 
   # Sets the list of available locales for the whole application.
   #
   # When an organization is created through the System area, system admins will
   # be able to choose the available languages for that organization. That list
   # of languages will be equal or a subset of the list in this file.
-  # config.available_locales = ENV.fetch("DECIDIM_AVAILABLE_LOCALES", "en").split(",")
-  config.available_locales = ENV.fetch("DECIDIM_AVAILABLE_LOCALES", "ca,en,es").split(",").map(&:strip).compact_blank
+  # config.available_locales = ENV["DECIDIM_AVAILABLE_LOCALES", [:en]]
+  # Or block set it up manually and prevent ENV manipulation:
+  config.available_locales = %w(ca en es)
 
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
@@ -35,11 +34,10 @@ Decidim.configure do |config|
   # that an organization's administrator injects malicious scripts to spy on or
   # take over user accounts.
   #
-  config.enable_html_header_snippets = bool.call(ENV.fetch("DECIDIM_ENABLE_HTML_HEADER_SNIPPETS", nil))
+  config.enable_html_header_snippets = ENV["DECIDIM_ENABLE_HTML_HEADER_SNIPPETS"].present?
 
   # Allow organizations admins to track newsletter links.
-  track_newsletter_links = ENV.fetch("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto")
-  config.track_newsletter_links = bool.call(track_newsletter_links) unless track_newsletter_links == "auto"
+  config.track_newsletter_links = ENV["DECIDIM_TRACK_NEWSLETTER_LINKS"].present? unless ENV["DECIDIM_TRACK_NEWSLETTER_LINKS"] == "auto"
 
   # Map and Geocoder configuration
   config.maps = {
@@ -49,15 +47,15 @@ Decidim.configure do |config|
   }
 
   # Workaround to enable SVG assets cors
-  # config.cors_enabled = bool.call(ENV["DECIDIM_CORS_ENABLED"])
+  # config.cors_enabled = ENV["CORS_ENABLED"].present?
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  config.throttling_max_requests = ENV.fetch("DECIDIM_THROTTLING_MAX_REQUESTS", "250").to_i
+  config.throttling_max_requests = ENV.fetch("DECIDIM_THROTTLING_MAX_REQUESTS", "100").to_i
 
   # Time window in which the throttling is applied.
   config.throttling_period = ENV.fetch("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
 
-  config.follow_http_x_forwarded_host = bool.call(ENV.fetch("DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST", nil))
+  config.follow_http_x_forwarded_host = ENV["DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST"].present?
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

@@ -45,13 +45,6 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-
-      - name: Setup Chrome and matching ChromeDriver
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-          install-chromedriver: true
-
       - name: Recover Ruby dependency cache
         uses: actions/cache@v4
         with:
