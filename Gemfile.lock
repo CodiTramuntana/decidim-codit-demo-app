@@ -1015,7 +1015,7 @@ DEPENDENCIES
   decidim-cdtb!
   decidim-dev!
   delayed_job_active_record
-  dotenv (>= 3.2)
+  dotenv (= 3.2.0)
   letter_opener_web
   listen
   openssl

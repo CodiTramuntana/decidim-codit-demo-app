@@ -17,7 +17,7 @@ gem "whenever"
 
 # TODO: Psych problem: https://github.com/laserlemon/figaro/issues/289
 # gem "figaro"
-gem "dotenv", ">= 3.2"
+gem "dotenv", "3.2.0"
 
 # if deploying to a PaaS like Heroku
 # gem "redis"
