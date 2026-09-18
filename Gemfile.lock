@@ -217,6 +217,15 @@ GIT
       decidim (~> 0.31.6)
       decidim-admin (~> 0.31.6)
 
+GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer
+  revision: 5e4e89c1a38a271b561efe22d006422224329b0a
+  branch: release/0.31-stable
+  specs:
+    decidim-term_customizer (0.31.0)
+      decidim-admin (~> 0.31.0)
+      decidim-core (~> 0.31.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -1062,6 +1071,7 @@ DEPENDENCIES
   decidim-file_authorization_handler!
   decidim-initiatives!
   decidim-sortitions!
+  decidim-term_customizer!
   delayed_job (~> 4.1.13)
   delayed_job_active_record
   dotenv (~> 3.2.0)
@@ -1157,6 +1167,7 @@ CHECKSUMS
   decidim-sortitions (0.31.7)
   decidim-surveys (0.31.7)
   decidim-system (0.31.7)
+  decidim-term_customizer (0.31.0)
   decidim-verifications (0.31.7)
   declarative-builder (0.2.0) sha256=2a46988c32b97c9e77c7739b7bbdd4ab7042c9584836c4abf5ac90024af6f1af
   declarative-option (0.1.0) sha256=17508349f51c5631e5ad4158c29f78a4b2de618abffa066d76c11953705f91bc
