@@ -1,12 +1,4 @@
 GIT
-  remote: http://github.com/gencat/decidim-module-challenges
-  revision: ecabee7bf93a01580b72019d696c3eed67ed4cca
-  branch: upgrade/release-0.30
-  specs:
-    decidim-challenges (1.0.0)
-      decidim-core (~> 0.30)
-
-GIT
   remote: https://github.com/CodiTramuntana/decidim.git
   revision: 7fc4553b92023592875119eae4ccb9d49f769e74
   branch: release/0.31-stable
@@ -1064,7 +1056,6 @@ DEPENDENCIES
   daemons
   decidim!
   decidim-cdtb
-  decidim-challenges!
   decidim-conferences!
   decidim-decidim_awesome (= 0.14.0)
   decidim-dev!
@@ -1149,7 +1140,6 @@ CHECKSUMS
   decidim-blogs (0.31.7)
   decidim-budgets (0.31.7)
   decidim-cdtb (0.6.0) sha256=7600471b607bb9755cfda033a196900af0f98b8303123311e37cc8d8a2d30a3e
-  decidim-challenges (1.0.0)
   decidim-comments (0.31.7)
   decidim-conferences (0.31.7)
   decidim-core (0.31.7)

@@ -13,7 +13,7 @@ gem "decidim-sortitions", DECIDIM_VERSION
 
 gem "decidim-cdtb"
 
-gem "decidim-challenges", git: "http://github.com/gencat/decidim-module-challenges", branch: "upgrade/release-0.30"
+# gem "decidim-challenges", git: "http://github.com/gencat/decidim-module-challenges", branch: "upgrade/release-0.30"
 gem "decidim-decidim_awesome", "0.14.0"
 gem "decidim-file_authorization_handler", git: "https://github.com/coditramuntana/decidim-file_authorization_handler", branch: "main"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.31-stable"
