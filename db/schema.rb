@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_09_03_084217) do
+ActiveRecord::Schema[7.2].define(version: 2026_09_22_102417) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -679,7 +679,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_09_03_084217) do
     t.jsonb "title", null: false
     t.jsonb "slogan", null: false
     t.string "slug", null: false
-    t.string "hashtag"
     t.string "reference"
     t.string "location"
     t.integer "decidim_organization_id"
@@ -1118,7 +1117,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_09_03_084217) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.integer "decidim_user_group_id"
-    t.string "hashtag"
     t.integer "scoped_type_id"
     t.datetime "first_progress_notification_at", precision: nil
     t.datetime "second_progress_notification_at", precision: nil
