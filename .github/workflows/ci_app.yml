@@ -59,7 +59,9 @@ jobs:
         run: bundle config set --local path 'vendor/bundle'
 
       - name: Install ImageMagick
-        run: sudo apt install imagemagick
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends imagemagick
 
       - name: Install Ruby deps
         uses: nick-invision/retry@v2
