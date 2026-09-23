@@ -3,6 +3,8 @@
 
 class AddQuestionnaireToExistingChallenges < ActiveRecord::Migration[5.2]
   def change
+    return unless defined?(Decidim::Challenges::Challenge)
+
     Decidim::Challenges::Challenge.transaction do
       Decidim::Challenges::Challenge.find_each do |challenge|
         if challenge.component.present? && challenge.questionnaire.blank?
