@@ -83,5 +83,7 @@ jobs:
           RAILS_ENV=test bundle exec rails db:create
           PGPASSWORD=${{ env.DB_PASSWORD }} psql -h ${{ env.DB_HOST }} -U ${{ env.DB_USERNAME }} -d ${{ env.DB_TEST_DATABASE }} -c "CREATE EXTENSION IF NOT EXISTS pgcrypto;"
           RAILS_ENV=test bundle exec rails db:migrate
+      - name: Compile Shakapacker assets for test
+        run: RAILS_ENV=test bundle exec rails shakapacker:compile
       - run: bundle exec rspec
         name: Run specs
