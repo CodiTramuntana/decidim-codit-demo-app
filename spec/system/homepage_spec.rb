@@ -24,12 +24,13 @@ describe "Homepage" do
 
   it "renders the home page" do
     expect(page).to have_css("header")
-    expect(page).to have_content("Ajuda")
+    expect(page).to have_title(organization.name[:ca])
+    expect(page).to have_content(organization.name[:ca])
   end
 
   it "loads and shows organization name and main blocks" do
-    expect(page).to have_content("Decidim Application")
-    expect(page).to have_content("Benvinguda a Decidim Application")
+    expect(page).to have_content(organization.name[:ca])
+    expect(page).to have_content(hero.settings["welcome_text_ca"])
 
     subhero_msg = translated(organization.description).gsub(%r{</p>\s+<p>}, "<br><br>").gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1").gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
     expect(page).to have_content(subhero_msg)
