@@ -20,9 +20,11 @@ describe "Homepage" do
       scope_name: :homepage,
       manifest_name: :hero,
       settings: {
-        "welcome_text_ca" => "Benvinguda a Decidim Application",
-        "welcome_text_en" => "Welcome to Decidim Application",
-        "welcome_text_es" => "Bienvenida a Decidim Application"
+        welcome_text: {
+          ca: "Benvinguda a Decidim Application",
+          en: "Welcome to Decidim Application",
+          es: "Bienvenida a Decidim Application"
+        }
       }
     )
   end
@@ -42,7 +44,9 @@ describe "Homepage" do
 
   it "loads and shows organization name and main blocks" do
     expect(page).to have_content(organization.name[:ca])
-    expect(page).to have_content(hero.settings["welcome_text_ca"])
+
+    hero_welcome_text = hero.settings.welcome_text.with_indifferent_access[:ca]
+    expect(page).to have_content(hero_welcome_text)
 
     subhero_msg = translated(organization.description).gsub(%r{</p>\s+<p>}, "<br><br>").gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1").gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
     expect(page).to have_content(subhero_msg)
