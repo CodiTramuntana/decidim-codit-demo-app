@@ -13,7 +13,19 @@ describe "Homepage" do
       available_locales: [:ca, :en, :es]
     )
   end
-  let!(:hero) { create(:content_block, organization:, scope_name: :homepage, manifest_name: :hero, settings: { "welcome_text_ca" => "Benvinguda a Decidim Application" }) }
+  let!(:hero) do
+    create(
+      :content_block,
+      organization:,
+      scope_name: :homepage,
+      manifest_name: :hero,
+      settings: {
+        "welcome_text_ca" => "Benvinguda a Decidim Application",
+        "welcome_text_en" => "Welcome to Decidim Application",
+        "welcome_text_es" => "Bienvenida a Decidim Application"
+      }
+    )
+  end
   let!(:sub_hero) { create(:content_block, organization:, scope_name: :homepage, manifest_name: :sub_hero) }
 
   before do
