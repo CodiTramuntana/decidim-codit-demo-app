@@ -32,8 +32,9 @@ describe "Homepage" do
 
   before do
     switch_to_host(organization.host)
-    I18n.locale = :ca
-    visit decidim.root_path(locale: :ca)
+    I18n.with_locale(:ca) do
+      visit decidim.root_path(locale: :ca)
+    end
   end
 
   it "renders the home page" do
