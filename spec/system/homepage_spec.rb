@@ -50,9 +50,9 @@ describe "Homepage" do
     expect(page).to have_content(hero_welcome_text)
 
     subhero_msg = I18n.with_locale(:ca) { translated(organization.description) }
-                  .gsub(%r{</p>\s+<p>}, "<br><br>")
-                  .gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1")
-                  .gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
+                      .gsub(%r{</p>\s+<p>}, "<br><br>")
+                      .gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1")
+                      .gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
     expect(page).to have_content(subhero_msg)
   end
 end
