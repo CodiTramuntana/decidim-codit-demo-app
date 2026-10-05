@@ -49,7 +49,10 @@ describe "Homepage" do
     hero_welcome_text = hero.settings.welcome_text.with_indifferent_access[:ca]
     expect(page).to have_content(hero_welcome_text)
 
-    subhero_msg = translated(organization.description).gsub(%r{</p>\s+<p>}, "<br><br>").gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1").gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
+    subhero_msg = I18n.with_locale(:ca) { translated(organization.description) }
+                  .gsub(%r{</p>\s+<p>}, "<br><br>")
+                  .gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1")
+                  .gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
     expect(page).to have_content(subhero_msg)
   end
 end
