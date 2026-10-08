@@ -7,6 +7,8 @@ Decidim.configure do |config|
   # The email that will be used as sender in all emails from Decidim
   config.mailer_sender = ENV["DECIDIM_MAILER_SENDER"]
 
+  config.default_locale = :en
+  config.available_locales = [:en, :ca, :es, :eu, :gl, :fr, :it, :pt]
   # Sets the list of available locales for the whole application.
   #
   # When an organization is created through the System area, system admins will

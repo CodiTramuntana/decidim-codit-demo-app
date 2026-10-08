@@ -25,8 +25,9 @@ Rails.application.configure do
   # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
   # config.public_file_server.enabled = false
 
-  # Compress CSS using a preprocessor.
-  #
+  # Disable serving static files from the `/public` folder by default since
+  # Apache or NGINX already handles this.
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
 
@@ -50,10 +51,13 @@ Rails.application.configure do
   # config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # config.force_ssl = true
 
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
+
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     config.logger = ActiveSupport::Logger.new($stdout)
@@ -63,14 +67,17 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
+  config.log_formatter = Logger::Formatter.new
+  config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.smtp_settings = {
-    address: Decidim::Env.new("SMTP_ADDRESS").to_s,
-    port: Decidim::Env.new("SMTP_PORT", 587).to_i,
-    authentication: Decidim::Env.new("SMTP_AUTHENTICATION", "plain").to_s,
-    user_name: Decidim::Env.new("SMTP_USERNAME").to_s,
-    password: Decidim::Env.new("SMTP_PASSWORD").to_s,
-    domain: Decidim::Env.new("SMTP_DOMAIN").to_s,
-    enable_starttls_auto: Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
+    address: ENV["MAILER_SMTP_ADDRESS"],
+    port: Env.fetch("MAILER_SMTP_PORT", 587).to_i,
+    authentication: ENV.fetch("MAILER_SMTP_AUTHENTICATION", "plain"),
+    user_name: ENV["MAILER_SMTP_USER_NAME"],
+    password: ENV["MAILER_SMTP_PASSWORD"],
+    domain: ENV["MAILER_SMTP_DOMAIN"],
+    enable_starttls_auto: ENV["MAILER_SMTP_STARTTLS_AUTO"],
     openssl_verify_mode: "none"
   }
 

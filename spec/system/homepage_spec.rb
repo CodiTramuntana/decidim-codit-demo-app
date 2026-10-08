@@ -46,13 +46,17 @@ describe "Homepage" do
   it "loads and shows organization name and main blocks" do
     expect(page).to have_content(organization.name[:ca])
 
-    hero_welcome_text = hero.settings.welcome_text.with_indifferent_access[:ca]
-    expect(page).to have_content(hero_welcome_text)
+    within("#hero-#{hero.id}") do
+      expect(page).to have_content(hero.settings.welcome_text.with_indifferent_access[:ca])
+    end
 
-    subhero_msg = I18n.with_locale(:ca) { translated(organization.description) }
-                      .gsub(%r{</p>\s+<p>}, "<br><br>")
-                      .gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1")
-                      .gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
-    expect(page).to have_content(subhero_msg)
+    within("#sub_hero") do
+      expect(page).to have_content(
+        I18n.with_locale(:ca) { translated(organization.description) }
+          .gsub(%r{</p>\s+<p>}, "<br><br>")
+          .gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1")
+          .gsub(%r{<script>(((?!</script>).)*)</script>}mi, "\\1")
+      )
+    end
   end
 end
