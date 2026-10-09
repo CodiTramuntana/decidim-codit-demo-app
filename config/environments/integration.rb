@@ -81,7 +81,7 @@ Rails.application.configure do
     openssl_verify_mode: ENV.fetch("SMTP_OPENSSL_VERIFY_MODE", "none")
   }
 
-  if Rails.application.secrets.sendgrid
+  if ENV["SENDGRID"].present?
     config.action_mailer.default_options = {
       "X-SMTPAPI" => {
         filters: {
