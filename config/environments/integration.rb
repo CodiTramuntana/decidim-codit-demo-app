@@ -71,17 +71,17 @@ Rails.application.configure do
   config.log_formatter = Logger::Formatter.new
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: Rails.application.secrets.smtp_address,
-    port: Rails.application.secrets.smtp_port,
-    authentication: Rails.application.secrets.smtp_authentication,
-    user_name: Rails.application.secrets.smtp_username,
-    password: Rails.application.secrets.smtp_password,
-    domain: Rails.application.secrets.smtp_domain,
-    enable_starttls_auto: Rails.application.secrets.smtp_starttls_auto,
-    openssl_verify_mode: "none"
+    address: ENV["MAILER_SMTP_ADDRESS"],
+    port: ENV["MAILER_SMTP_PORT"].to_i,
+    authentication: ENV["MAILER_SMTP_AUTHENTICATION"],
+    user_name: ENV["MAILER_SMTP_USER_NAME"],
+    password: ENV["MAILER_SMTP_PASSWORD"],
+    domain: ENV["MAILER_SMTP_DOMAIN"],
+    enable_starttls_auto: ENV.fetch("MAILER_SMTP_STARTTLS_AUTO", "true") == "true",
+    openssl_verify_mode: ENV.fetch("SMTP_OPENSSL_VERIFY_MODE", "none")
   }
 
-  if Rails.application.secrets.sendgrid
+  if ENV["SENDGRID"].present?
     config.action_mailer.default_options = {
       "X-SMTPAPI" => {
         filters: {
