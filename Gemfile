@@ -41,7 +41,7 @@ gem "whenever"
 # concurrent-ruby v1.3.5 has removed the dependency on logger
 gem "concurrent-ruby"
 
-gem "ruby-vips", ">= 2.2.0"
+gem "ruby-vips", ">= 2.2.1"
 
 group :development, :test do
   gem "better_errors"
