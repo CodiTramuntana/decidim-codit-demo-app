@@ -1072,6 +1072,7 @@ DEPENDENCIES
   matrix
   openssl
   puma
+  ruby-vips (>= 2.2.0)
   seven_zip_ruby!
   web-console
   whenever
