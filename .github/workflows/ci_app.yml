@@ -58,10 +58,10 @@ jobs:
       - name: Set bundle local config vendor/bundle path
         run: bundle config set --local path 'vendor/bundle'
 
-      - name: Install ImageMagick
+      - name: Install ImageMagick and libvips
         run: |
           sudo apt-get update
-          sudo apt-get install -y imagemagick
+          sudo apt-get install -y imagemagick libvips
 
       - name: Install Ruby deps
         uses: nick-invision/retry@v2
