@@ -20,3 +20,4 @@ integration:
 
 production:
   url: <%= ENV['DATABASE_URL'] %>
+  pool: <%= ENV.fetch("DB_POOL") { ENV.fetch("RAILS_MAX_THREADS", 5) } %>
