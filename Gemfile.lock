@@ -112,6 +112,9 @@ GIT
     decidim-debates (0.31.7)
       decidim-comments (= 0.31.7)
       decidim-core (= 0.31.7)
+    decidim-demographics (0.31.7)
+      decidim-core (= 0.31.7)
+      decidim-forms (= 0.31.7)
     decidim-dev (0.31.7)
       bullet (~> 8.0.0)
       byebug (~> 11.0)
@@ -1057,6 +1060,7 @@ DEPENDENCIES
   decidim-cdtb
   decidim-conferences!
   decidim-decidim_awesome (= 0.14.0)
+  decidim-demographics!
   decidim-dev!
   decidim-file_authorization_handler!
   decidim-initiatives!
@@ -1145,6 +1149,7 @@ CHECKSUMS
   decidim-core (0.31.7)
   decidim-debates (0.31.7)
   decidim-decidim_awesome (0.14.0) sha256=1d56f54062b33ad8e4d3ece48d52baafc5793720ed8a6ee1d8af2778b58b273e
+  decidim-demographics (0.31.7)
   decidim-dev (0.31.7)
   decidim-file_authorization_handler (0.31.6.3)
   decidim-forms (0.31.7)

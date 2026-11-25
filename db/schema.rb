@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_09_22_102417) do
+ActiveRecord::Schema[7.2].define(version: 2026_11_25_082934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -382,6 +382,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_09_22_102417) do
     t.datetime "granted_at", precision: nil
     t.jsonb "verification_metadata", default: {}
     t.string "verification_attachment"
+    t.integer "failed_attempts", default: 0, null: false
+    t.datetime "locked_at"
     t.index ["decidim_user_id", "name"], name: "index_decidim_authorizations_on_decidim_user_id_and_name", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_authorizations_on_decidim_user_id"
     t.index ["unique_id"], name: "index_decidim_authorizations_on_unique_id"
@@ -582,6 +584,50 @@ ActiveRecord::Schema[7.2].define(version: 2026_09_22_102417) do
     t.index ["coauthorable_type", "coauthorable_id"], name: "index_coauthorable_on_coauthorship"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_coauthorships_on_decidim_author"
     t.index ["decidim_user_group_id"], name: "index_user_group_on_coauthorsihp"
+  end
+
+  create_table "decidim_collaborative_texts_documents", force: :cascade do |t|
+    t.integer "decidim_component_id"
+    t.string "title"
+    t.jsonb "announcement"
+    t.boolean "accepting_suggestions", default: false, null: false
+    t.datetime "published_at", precision: nil
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "coauthorships_count", default: 0, null: false
+    t.integer "suggestions_count", default: 0, null: false
+    t.integer "document_versions_count", default: 0, null: false
+    t.index ["coauthorships_count"], name: "idx_decidim_collaborative_texts_documents_coauthorships_count"
+    t.index ["deleted_at"], name: "index_decidim_collaborative_texts_documents_on_deleted_at"
+    t.index ["document_versions_count"], name: "idx_decidim_collaborative_texts_documents_versions_count"
+    t.index ["published_at"], name: "index_decidim_collaborative_texts_documents_on_published_at"
+    t.index ["suggestions_count"], name: "idx_decidim_collaborative_texts_documents_suggestions_count"
+  end
+
+  create_table "decidim_collaborative_texts_suggestions", force: :cascade do |t|
+    t.bigint "document_version_id", null: false
+    t.string "decidim_author_type"
+    t.bigint "decidim_author_id"
+    t.jsonb "changeset", default: {}, null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_author_type", "decidim_author_id"], name: "index_collaborative_texts_suggestions_on_author"
+    t.index ["document_version_id"], name: "index_collaborative_texts_suggestions_on_version_id"
+  end
+
+  create_table "decidim_collaborative_texts_versions", force: :cascade do |t|
+    t.bigint "document_id", null: false
+    t.string "body"
+    t.boolean "draft", default: false, null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "suggestions_count", default: 0, null: false
+    t.index ["deleted_at"], name: "index_decidim_collaborative_texts_versions_on_deleted_at"
+    t.index ["document_id"], name: "index_decidim_collaborative_texts_versions_on_document_id"
+    t.index ["suggestions_count"], name: "idx_decidim_collaborative_texts_versions_suggestions_count"
   end
 
   create_table "decidim_comments_comment_votes", id: :serial, force: :cascade do |t|
@@ -951,6 +997,14 @@ ActiveRecord::Schema[7.2].define(version: 2026_09_22_102417) do
     t.index ["likes_count"], name: "index_decidim_debates_debates_on_likes_count"
   end
 
+  create_table "decidim_demographics_demographics", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.boolean "collect_data", default: false, null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["decidim_organization_id"], name: "decidim_demographics_demographics_on_organization_id"
+  end
+
   create_table "decidim_editor_images", force: :cascade do |t|
     t.bigint "decidim_author_id", null: false
     t.bigint "decidim_organization_id", null: false
@@ -958,6 +1012,74 @@ ActiveRecord::Schema[7.2].define(version: 2026_09_22_102417) do
     t.datetime "updated_at", null: false
     t.index ["decidim_author_id"], name: "decidim_editor_images_author"
     t.index ["decidim_organization_id"], name: "decidim_editor_images_constraint_organization"
+  end
+
+  create_table "decidim_elections_elections", force: :cascade do |t|
+    t.integer "decidim_component_id"
+    t.jsonb "title"
+    t.jsonb "description"
+    t.jsonb "announcement"
+    t.datetime "start_at", precision: nil
+    t.datetime "end_at", precision: nil
+    t.string "results_availability", default: "after_end", null: false
+    t.datetime "published_at", precision: nil
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "census_manifest"
+    t.jsonb "census_settings", default: {}, null: false
+    t.datetime "published_results_at"
+    t.integer "votes_count", default: 0, null: false
+    t.index ["census_manifest"], name: "index_decidim_elections_elections_on_census_manifest"
+    t.index ["deleted_at"], name: "index_decidim_elections_elections_on_deleted_at"
+    t.index ["end_at"], name: "index_decidim_elections_elections_on_end_at"
+    t.index ["published_at"], name: "index_decidim_elections_elections_on_published_at"
+    t.index ["start_at"], name: "index_decidim_elections_elections_on_start_at"
+  end
+
+  create_table "decidim_elections_questions", force: :cascade do |t|
+    t.bigint "election_id", null: false
+    t.jsonb "body", default: {}, null: false
+    t.jsonb "description", default: {}
+    t.boolean "mandatory", default: false, null: false
+    t.string "question_type", default: "multiple_option", null: false
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "published_results_at"
+    t.datetime "voting_enabled_at"
+    t.integer "votes_count", default: 0, null: false
+    t.integer "response_options_count", default: 0, null: false
+    t.index ["election_id"], name: "index_questions_on_election_id"
+  end
+
+  create_table "decidim_elections_response_options", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.jsonb "body", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "votes_count", default: 0, null: false
+    t.index ["question_id"], name: "index_response_options_on_question_id"
+  end
+
+  create_table "decidim_elections_voters", force: :cascade do |t|
+    t.bigint "election_id", null: false
+    t.jsonb "data", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["election_id"], name: "index_decidim_elections_voters_on_election_id"
+  end
+
+  create_table "decidim_elections_votes", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "response_option_id", null: false
+    t.string "voter_uid", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id", "voter_uid", "response_option_id"], name: "index_elections_votes_on__voter_uid_and_response", unique: true
+    t.index ["question_id"], name: "index_decidim_elections_votes_on_question_id"
+    t.index ["response_option_id"], name: "index_decidim_elections_votes_on_response_option_id"
+    t.index ["voter_uid"], name: "index_decidim_elections_votes_on_voter_uid"
   end
 
   create_table "decidim_file_authorization_handler_census_data", force: :cascade do |t|
@@ -2148,6 +2270,20 @@ ActiveRecord::Schema[7.2].define(version: 2026_09_22_102417) do
     t.index ["root_taxonomy_id"], name: "index_decidim_taxonomy_filters_on_root_taxonomy_id"
   end
 
+  create_table "decidim_templates_templates", force: :cascade do |t|
+    t.integer "decidim_organization_id", null: false
+    t.string "templatable_type"
+    t.bigint "templatable_id"
+    t.jsonb "name", null: false
+    t.jsonb "description"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.json "field_values", default: {}
+    t.string "target"
+    t.index ["decidim_organization_id"], name: "index_decidim_templates_organization"
+    t.index ["templatable_type", "templatable_id"], name: "index_decidim_templates_templatable"
+  end
+
   create_table "decidim_term_customizer_constraints", force: :cascade do |t|
     t.bigint "decidim_organization_id", null: false
     t.string "subject_type"
@@ -2428,8 +2564,14 @@ ActiveRecord::Schema[7.2].define(version: 2026_09_22_102417) do
   add_foreign_key "decidim_consultations_responses", "decidim_consultations_response_groups"
   add_foreign_key "decidim_consultations_votes", "decidim_consultations_responses"
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
+  add_foreign_key "decidim_demographics_demographics", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_elections_questions", "decidim_elections_elections", column: "election_id"
+  add_foreign_key "decidim_elections_response_options", "decidim_elections_questions", column: "question_id"
+  add_foreign_key "decidim_elections_voters", "decidim_elections_elections", column: "election_id"
+  add_foreign_key "decidim_elections_votes", "decidim_elections_questions", column: "question_id"
+  add_foreign_key "decidim_elections_votes", "decidim_elections_response_options", column: "response_option_id"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_initiatives_settings", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
