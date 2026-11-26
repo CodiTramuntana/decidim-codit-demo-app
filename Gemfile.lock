@@ -112,6 +112,9 @@ GIT
     decidim-debates (0.31.7)
       decidim-comments (= 0.31.7)
       decidim-core (= 0.31.7)
+    decidim-demographics (0.31.7)
+      decidim-core (= 0.31.7)
+      decidim-forms (= 0.31.7)
     decidim-dev (0.31.7)
       bullet (~> 8.0.0)
       byebug (~> 11.0)
@@ -389,6 +392,8 @@ GEM
       decidim (>= 0.29.0)
       rails (>= 6)
       ruby-progressbar
+    decidim-challenges (0.9.0)
+      decidim-core (~> 0.31)
     decidim-decidim_awesome (0.14.0)
       active_hashcash (~> 0.4.0)
       decidim-admin (>= 0.31.0, < 0.32)
@@ -916,9 +921,8 @@ GEM
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
     ruby-progressbar (1.13.0)
-    ruby-vips (2.3.0)
+    ruby-vips (2.2.1)
       ffi (~> 1.12)
-      logger
     rubyXL (3.4.33)
       nokogiri (>= 1.10.8)
       rubyzip (>= 1.3.0)
@@ -1056,8 +1060,10 @@ DEPENDENCIES
   daemons
   decidim!
   decidim-cdtb
+  decidim-challenges (~> 0.9.0)
   decidim-conferences!
   decidim-decidim_awesome (= 0.14.0)
+  decidim-demographics!
   decidim-dev!
   decidim-file_authorization_handler!
   decidim-initiatives!
@@ -1072,6 +1078,7 @@ DEPENDENCIES
   matrix
   openssl
   puma
+  ruby-vips (= 2.2.1)
   seven_zip_ruby!
   web-console
   whenever
@@ -1140,11 +1147,13 @@ CHECKSUMS
   decidim-blogs (0.31.7)
   decidim-budgets (0.31.7)
   decidim-cdtb (0.6.0) sha256=7600471b607bb9755cfda033a196900af0f98b8303123311e37cc8d8a2d30a3e
+  decidim-challenges (0.9.0) sha256=33b361d1cbf64081f44026645902948e6db008dbf24894d56f926f112fa4669c
   decidim-comments (0.31.7)
   decidim-conferences (0.31.7)
   decidim-core (0.31.7)
   decidim-debates (0.31.7)
   decidim-decidim_awesome (0.14.0) sha256=1d56f54062b33ad8e4d3ece48d52baafc5793720ed8a6ee1d8af2778b58b273e
+  decidim-demographics (0.31.7)
   decidim-dev (0.31.7)
   decidim-file_authorization_handler (0.31.6.3)
   decidim-forms (0.31.7)
@@ -1352,7 +1361,7 @@ CHECKSUMS
   rubocop-rspec_rails (2.31.0) sha256=775375e18a26a1184a812ef3054b79d218e85601b9ae897f38f8be24dddf1f45
   rubocop-rubycw (0.2.2) sha256=28b3741cac84845bb845885943d7990b720ed05bf68d76ddd34315afa27e98c9
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
-  ruby-vips (2.3.0) sha256=e685ec02c13969912debbd98019e50492e12989282da5f37d05f5471442f5374
+  ruby-vips (2.2.1) sha256=a29841d601c5cfcad9b152964fe83ac8fc60dd94cf8d1fc5e69cfb90fe57cc7b
   rubyXL (3.4.33) sha256=dc2732dacf5f963fdd9732eb36b3342cb240414371ed8d9f327f667d2b286d2e
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   sass-embedded (1.104.1-aarch64-linux-gnu) sha256=74462d649b6d6089dffa0696a0e5f9da68aae76693401396ef51c4b593f4511a

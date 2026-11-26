@@ -8,12 +8,13 @@ DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-demographics", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-sortitions", DECIDIM_VERSION
 
 gem "decidim-cdtb"
 
-# gem "decidim-challenges", git: "http://github.com/gencat/decidim-module-challenges", branch: "upgrade/release-0.30"
+gem "decidim-challenges", "~> 0.9.0"
 gem "decidim-decidim_awesome", "0.14.0"
 gem "decidim-file_authorization_handler", git: "https://github.com/coditramuntana/decidim-file_authorization_handler", branch: "main"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.31-stable"
@@ -40,6 +41,8 @@ gem "whenever"
 
 # concurrent-ruby v1.3.5 has removed the dependency on logger
 gem "concurrent-ruby"
+
+gem "ruby-vips", "2.2.1"
 
 group :development, :test do
   gem "better_errors"
