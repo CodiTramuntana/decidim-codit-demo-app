@@ -392,6 +392,8 @@ GEM
       decidim (>= 0.29.0)
       rails (>= 6)
       ruby-progressbar
+    decidim-challenges (0.9.0)
+      decidim-core (~> 0.31)
     decidim-decidim_awesome (0.14.0)
       active_hashcash (~> 0.4.0)
       decidim-admin (>= 0.31.0, < 0.32)
@@ -1058,6 +1060,7 @@ DEPENDENCIES
   daemons
   decidim!
   decidim-cdtb
+  decidim-challenges (~> 0.9.0)
   decidim-conferences!
   decidim-decidim_awesome (= 0.14.0)
   decidim-demographics!
@@ -1144,6 +1147,7 @@ CHECKSUMS
   decidim-blogs (0.31.7)
   decidim-budgets (0.31.7)
   decidim-cdtb (0.6.0) sha256=7600471b607bb9755cfda033a196900af0f98b8303123311e37cc8d8a2d30a3e
+  decidim-challenges (0.9.0) sha256=33b361d1cbf64081f44026645902948e6db008dbf24894d56f926f112fa4669c
   decidim-comments (0.31.7)
   decidim-conferences (0.31.7)
   decidim-core (0.31.7)
